@@ -19,6 +19,14 @@
         <li class="active">Modules</li>
       </ol>
     </section>
+    <?php 
+      if(Input::exists() && Input::get('save_module') == 'save_module'){
+      $module_name = strtolower(Input::get('module_name'));
+      $module_desc = strtolower(Input::get('module_description'));
+      $arrayNewModule = array("module_name"=>$module_name,"module_description"=>$module_desc);
+      if(DB::getInstance()->checkRows("SELECT * FROM modules WHERE module_name = $module_name")){}
+    }
+    ?>
 
     <!-- Main content -->
     <section class="content">
@@ -40,7 +48,7 @@
                     <label for="inputName" class="col-sm-2 control-label">Module Name</label>
 
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Module name">
+                      <input type="text" class="form-control" name="module_name" id="inputName" placeholder="Module name">
                     </div>
                   </div>
                   <div class="form-group">
@@ -52,7 +60,7 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="submit" class="btn btn-primary" name="save_module" value="save_module">Save</button>
                     </div>
                   </div>
                 </form>

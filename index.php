@@ -54,6 +54,11 @@ switch ($page) {
         if (file_exists('pages/area_coordinators/' . $page . '.php'))
             include 'pages/area_coordinators/' . $page . '.php';
         break;
+
+    case 'field_officer':
+        if (file_exists('pages/field_officers/' . $page . '.php'))
+            include 'pages/field_officers/' . $page . '.php';
+        break;
         
     case 'production_area':
         if (file_exists('pages/production_area/' . $page . '.php'))

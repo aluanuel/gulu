@@ -87,7 +87,7 @@
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="index.php?page=field_officer">
             <i class="fa fa-circle"></i>
             <span>Field Officers</span>
           </a>

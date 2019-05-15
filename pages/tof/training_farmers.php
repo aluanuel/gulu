@@ -100,47 +100,33 @@
                                                             <input type="date" class="form-control" id="inputName" name="training_date" placeholder="Enter Date of training" autocomplete="off">
                                                         </div>
                                                     </div>
-                                                   <div class="form-group">
+                                             <div class="form-group">
+                                                    <label for="inputName" class="col-sm-2 control-label">Area Coordinator</label>
 
-                    <label for="inputName" class="col-sm-2 control-label">Area Coordinator</label>
-
-
-
-                    <div class="col-sm-10">
-
-                      <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
-
-                  <option>--Select--</option>
-
-                  <?php
-
-                    $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
-
-                    foreach ($query_ac->results() as $query_ac):
-
-                  ?>
-
-                  <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name.' ~ '.$query_ac->ac_initials);?></option>
-
-                <?php endforeach; ?>
-
-                </select>
-
-                    </div>
-
-                  </div>
+                                                    <div class="col-sm-10">
+                                                      <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
+                                                  <option>--Select--</option>
+                                                  <?php
+                                                    $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
+                                                    foreach ($query_ac->results() as $query_ac):
+                                                  ?>
+                                                  <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name.' ~ '.$query_ac->ac_initials);?></option>
+                                                <?php endforeach; ?>
+                                                </select>
+                                                    </div>
+                                                  </div>
                                                     <div class="form-group">
                                                         <label for="inputName" class="col-sm-2 control-label">Field officer Code</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_district" name="select_id_district">
                                                                 <option>--Select--</option>
-                                                                <?php $district_query = DB::getInstance()->query("SELECT * FROM district");
-                                                                    foreach($district_query->results() as $district_query):
+                                                                <?php $fieldofficer_query = DB::getInstance()->query("SELECT * FROM field_officers");
+                                                                    foreach($fieldofficer_query->results() as $fieldofficer_query):
                                                                 ?>
-                                                                <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name);?></option>
+                                                                <option  value="<?php echo $fieldofficer_query->id_field_officer; ?>"><?php echo strtoupper($fieldofficer_query->field_officer_code);?></option>
                                                                 <?php endforeach;?>
-                                                                <option value="new_district">Add District</option>
+                                                                <option value="new_district">Add field officer</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -157,20 +143,20 @@
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_district" name="select_id_district">
                                                                 <option>--Select--</option>
-                                                                <?php $district_query = DB::getInstance()->query("SELECT * FROM district");
-                                                                    foreach($district_query->results() as $district_query):
+                                                                <?php $leadfarmer_query = DB::getInstance()->query("SELECT * FROM lead_farmers");
+                                                                    foreach($leadfarmer_query->results() as $leadfarmer_query):
                                                                 ?>
-                                                                <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name);?></option>
+                                                                <option  value="<?php echo $leadfarmer_query->id_lead_farmer; ?>"><?php echo strtoupper($leadfarmer_query->lead_farmer_code);?></option>
                                                                 <?php endforeach;?>
-                                                                <option value="new_district">Add District</option>
+                                                                <option value="new_district">Add Lead Farmer</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group" id="new_parish">
+                                                    <div class="form-group" id="lf_name">
                                                         <label for="inputName" class="col-sm-2 control-label">Lead Farmer name</label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter name of lead farmer" autocomplete="off">
+                                                            <input type="text" class="form-control" id="inputName" name="lf_name" placeholder="Enter name of lead farmer" autocomplete="off">
                                                         </div>
                                                     </div>
                                                      <div class="form-group">
@@ -248,26 +234,34 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="form-group">
+                                                 <!--   <div class="form-group">
                                                         <label for="inputName" class="col-sm-2 control-label">Village</label>
 
                                                         <div class="col-sm-10">
-                                                            <select class="form-control select2" style="width: 100%;" id="select_id_village" name="select_id_village">
+                                                            <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_village">
                                                                 <option>--Select--</option>
-                                                                <option  value="1">Arua</option>
-                                                                <option>California</option>
-                                                                <option>Delaware</option>
-                                                                <option>Tennessee</option>
-                                                                <option>Texas</option>
+                                                                <?php $village_query = DB::getInstance()->query("SELECT * FROM village");
+                                                                    foreach($village_query->results() as $village_query):
+                                                                ?>
+                                                                <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name);?></option>
+                                                                <?php endforeach;?>
                                                                 <option value="new_village">Add Village</option>
                                                             </select>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="form-group" id="new_module">
                                                         <label for="inputName" class="col-sm-2 control-label">Module</label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="inputName" name="id_module" placeholder="Enter module" autocomplete="off">
+                                                            <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_module">
+                                                                <option>--Select--</option>
+                                                                <?php $module_query = DB::getInstance()->query("SELECT * FROM modules");
+                                                                    foreach($module_query->results() as $module_query):
+                                                                ?>
+                                                                <option  value="<?php echo $module_query->id_module; ?>"><?php echo strtoupper($module_query->module_name);?></option>
+                                                                <?php endforeach;?>
+                                                                
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group" id="new_module">
@@ -368,35 +362,71 @@
                                     <div class="tab-pane" id="view_training" style="height: auto;">
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Data Table With Full Features</h3>
+                                                <h3 class="box-title">Data previously entered </h3>
                                             </div>
                                             <!-- /.box-header -->
-                                            <div class="box-body">
-                                                <table id="example1" class="table table-bordered table-striped">
+                                            <div class="box-body" style="overflow-x:auto;">
+                                                <table id="example1" class="table table-bordered table-striped" >
                                                     <thead class="text-uppercase">
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>name of production area</th>
-                                                            <th>district</th>
-                                                            <th>subcounty</th>
-                                                            <th>parish</th>
-                                                            <th>village</th>
-                                                            <th>action</th>
+                                                            <th>Training date</th>
+                                                            <th>AC</th>
+                                                            <th>Fo Code</th>
+                                                            <th>Fo Name</th>
+                                                            <th>Lf Code</th>
+                                                            <th>Lf Name</th>
+                                                            <th>Venue</th>
+                                                            <th>District</th>
+                                                            <th>SubCounty</th>
+                                                            <th>Parish</th>
+                                                            <th>module</th>
+                                                            <th>Repeat</th>
+                                                            <th>Male ofs</th>
+                                                            <th>Female ofs</th>
+                                                            <th>Male Youth ofs</th>
+                                                            <th>Female Youth ofs</th>
+                                                            <th>Total OFS</th>
+                                                            <th>Total Youth OFS</th>
+                                                            <th>LFS</th>
+                                                            <th>OFS</th>
+                                                            <th>others</th>
+                                                            <th>reviewed by</th>
+                                                            
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
                                                         $x = 1;
-                                                        $production_query = DB::getInstance()->query("SELECT * FROM production_area");
-                                                        foreach ($production_query->results() as $production):
+                                                        $training_query = DB::getInstance()->query("SELECT * FROM training_farmers");
+                                                        foreach ($training_query->results() as $training):
                                                             ?>
                                                             <tr>
                                                                 <td><?php echo $x; ?></td>
-                                                                <td><?php echo strtoupper($production->production_area); ?> </td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('district','district_name','id_district='.$production->id_district)); ?> </td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty','subcounty_name','id_subcounty='.$production->id_subcounty)); ?> </td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('parish','parish_name','id_parish='.$production->id_parish)); ?> </td>
-                                                                <td><?php echo $production->id_village; ?> </td>
+                                                                <td><?php echo strtoupper($training->training_date); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('area_coordinator','ac_initials','id_area_coordinator='.$training->id_area_coordinator)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('field_officers','field_officer_code','id_field_officer='.$training->id_field_officer)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('field_officers','name','id_field_officer='.$training->id_field_officer)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('lead_farmers','lead_farmer_code','id_lead_farmer='.$training->id_lead_farmer)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('lead_farmers','name','id_lead_farmer='.$training->id_lead_farmer)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('training_venue','venue_name','id_venue='.$training->id_training_venue)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('district','district_name','id_district='.$training->id_district)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty','subcounty_name','id_subcounty='.$training->id_subcounty)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('parish','parish_name','id_parish='.$training->id_parish)); ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('modules','id_module','id_module='.$training->id_module)); ?> </td>
+                                                                 <td><?php echo strtoupper($training->module_repetition); ?> </td>
+                                                                <td><?php echo strtoupper($training->male_ofs); ?> </td>
+                                                                <td><?php echo strtoupper($training->female_ofs); ?> </td>
+                                                                 <td><?php echo strtoupper($training->male_youth_ofs); ?> </td>
+                                                                 <td><?php echo strtoupper($training->female_youth_ofs); ?> </td>
+                                                                 <td><?php echo strtoupper($training->total_ofs); ?> </td>
+                                                                 <td><?php echo strtoupper($training->total_youth_ofs); ?> </td>
+                                                                <td><?php echo strtoupper($training->lfs); ?> </td>
+                                                                <td><?php echo strtoupper($training->ofs); ?> </td>
+                                                                <td><?php echo strtoupper($training->others); ?> </td>
+                                                                <td><?php echo strtoupper($training->reviewed_by); ?> </td>
+                                                               
                                                                 <td></td>
                                                             </tr>
                                                             <?php

@@ -31,7 +31,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.php?page=training_of_farmers"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
+            <li><a href="index.php?page=training_farmers"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>

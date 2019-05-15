@@ -45,7 +45,7 @@ switch ($page) {
             include 'pages/' . $page . '.php';
         break;
 
-    case 'training_of_farmers':
+    case 'training_farmers':
         if (file_exists('pages/tof/' . $page . '.php'))
             include 'pages/tof/' . $page . '.php';
         break;

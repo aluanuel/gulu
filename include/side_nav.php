@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="assets/uploads/profile_photos/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -93,7 +93,7 @@
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="index.php?page=lead_farmer">
             <i class="fa fa-circle"></i>
             <span>Lead Farmers</span>
           </a>
@@ -111,7 +111,7 @@
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="index.php?page=training_venue">
             <i class="fa fa-circle"></i>
             <span>Venue</span>
           </a>

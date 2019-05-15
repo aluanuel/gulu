@@ -230,12 +230,12 @@
 <script>
     $(function () {
           //when page loads
-        $(document).ready(function () {
-            $('#new_district').hide();
-            $('#new_subcounty').hide();
-            $('#new_parish').hide();
-            $('#new_village').hide();
-        })
+        // $(document).ready(function () {
+        //     $('#new_district').hide();
+        //     $('#new_subcounty').hide();
+        //     $('#new_parish').hide();
+        //     $('#new_village').hide();
+        // })
         
         $('#example1').DataTable()
         $('#example2').DataTable({

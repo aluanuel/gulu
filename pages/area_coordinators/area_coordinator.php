@@ -174,14 +174,14 @@
                 <tr>
                   <th>#</th>
                   <th>name</th>
-                  <th>initials</th>
-                  <th>production area</th>
+                  <th>ac</th>
+                  <th>pa</th>
                   <th>district</th>
                   <th>subcounty</th>
                   <th>parish</th>
                   <th>village</th>
-                  <th>telephone</th>
-                  <th>gender</th>
+                  <th>contact</th>
+                  <th>sex</th>
                   <th>age</th>
                 </tr>
                 </thead>

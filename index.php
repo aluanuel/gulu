@@ -59,6 +59,11 @@ switch ($page) {
         if (file_exists('pages/field_officers/' . $page . '.php'))
             include 'pages/field_officers/' . $page . '.php';
         break;
+
+    case 'lead_farmer':
+        if (file_exists('pages/lead_farmers/' . $page . '.php'))
+            include 'pages/lead_farmers/' . $page . '.php';
+        break;
         
     case 'production_area':
         if (file_exists('pages/production_area/' . $page . '.php'))
@@ -69,5 +74,12 @@ switch ($page) {
         if (file_exists('pages/modules/' . $page . '.php'))
             include 'pages/modules/' . $page . '.php';
         break;
+
+    case 'training_venue':
+        if (file_exists('pages/training_venue/' . $page . '.php'))
+            include 'pages/training_venue/' . $page . '.php';
+        break;
+        
+        
 }
 ?>

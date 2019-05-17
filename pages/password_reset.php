@@ -10,27 +10,6 @@ ob_start();
     $alert_entry = "";
 if(Input::exists()){
     Redirect::to('index.php?page=dashboard');
-    // if(Token::check(Input::get('login_token'))){
-    // 	$validate = new Validate();
-    // 	    $validation = $validate->check($_POST, array(
-    //         'username' => array(
-    //             'required' => true
-    //         ),
-    //         'password' => array(
-    //             'required' => true
-    //         )
-    //     ));
-    // 	    if($validation->passed()){
-    // 	    	$user = new User();
-
-    // 	    	$login = $user->login(Input::get('username'),Input::get('password'));
-    // 	    	if($login){
-    // 	    		Redirect::to('index.php?page=dashboard');
-    // 	    	}else{
-    // 	    		$alert_entry = "Sorry, login failed";
-    // 	    	}
-    // 	    }
-    // }
 }
     ?>
     <body class="hold-transition login-page">
@@ -43,17 +22,22 @@ if(Input::exists()){
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Account recovery</p>
+                <p class="login-box-msg" id="password_reset">Reset password</p>
 
                 <form action="" method="post">
 
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" name="username" placeholder="Username"  autocomplete="
+                        <input type="text" class="form-control" name="username" placeholder="Enter email address or username"  autocomplete="
                                off">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
-                    <div class="form-group has-feedback">
+                    <div class="form-group has-feedback" id="password_reset">
                         <input type="password" class="form-control" name="password"  placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback" id="password_reset">
+                        <input type="password" class="form-control" name="password_repeat"  placeholder="Repeat password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
@@ -63,12 +47,11 @@ if(Input::exists()){
                         <!-- /.col -->
                         <div class="col-xs-4 pull-right">
                             <input type="hidden" name="login_token" class="input" value="<?php echo Token::generate(); ?>">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
-                <a href="index.php?page=password_reset">I forgot my password</a>
 
             </div>
             <!-- /.login-box-body -->

@@ -48,7 +48,7 @@
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
-        <li class="treeview">
+<!--        <li class="treeview">
           <a href="#">
             <i class="fa fa-circle"></i>
             <span>Training of Field Officers</span>
@@ -60,7 +60,7 @@
             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Field Officers</a></li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
-        </li>
+        </li>-->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-circle"></i>

@@ -34,7 +34,26 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <style type="text/css">
-#new_district,#new_subcounty,#new_parish,#new_village{
+#new_district,#new_subcounty,#new_parish,#new_village,#other_person{
   display: none;
 }
+#restricted_to_admin{
+  display: none;
+}
+#password_reset{
+  display: none;
+}
+.example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
 </style>

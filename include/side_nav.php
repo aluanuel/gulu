@@ -31,8 +31,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.php?page=training_farmers"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
+            <li><a href="index.php?page=training_farmer"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
+            <li><a href="index.php?page=training_farmer_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -44,11 +44,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Trainers</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
+            <li><a href="index.php?page=training_trainers"><i class="fa fa-circle-o"></i>Training of Trainers</a></li>
+            <li><a href="index.php?page=training_trainers_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <!--<li class="treeview">
           <a href="#">
             <i class="fa fa-circle"></i>
             <span>Training of Field Officers</span>
@@ -60,7 +60,7 @@
             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Field Officers</a></li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
-        </li>
+        </li>-->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-circle"></i>
@@ -70,8 +70,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Lead Farmers</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
+            <li><a href="index.php?page=training_lead_farmer"><i class="fa fa-circle-o"></i>Training of Lead Farmers</a></li>
+            <li><a href="index.php?page=training_lead_farmer"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
         <li class="">
@@ -93,13 +93,13 @@
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="#">
             <i class="fa fa-circle"></i>
             <span>Lead Farmers</span>
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="#">
             <i class="fa fa-circle"></i>
             <span>Organic Farmers</span>
           </a>
@@ -111,7 +111,7 @@
           </a>
         </li>
         <li class="">
-          <a href="index.php?page=video_screening">
+          <a href="index.php?page=training_venue">
             <i class="fa fa-circle"></i>
             <span>Venue</span>
           </a>

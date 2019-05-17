@@ -165,12 +165,12 @@
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_district" name="select_id_district">
                                                                 <option>--Select--</option>
-                                                                <?php $district_query = DB::getInstance()->query("SELECT * FROM district");
-                                                                    foreach($district_query->results() as $district_query):
+                                                                <?php $raining_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                                    foreach($training_venue_query->results() as $training_venue_query):
                                                                 ?>
-                                                                <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name);?></option>
+                                                                <option  value="<?php echo $training_venue_query->id_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name);?></option>
                                                                 <?php endforeach;?>
-                                                                <option value="new_district">Add District</option>
+                                                                <option value="new_district">Add venue</option>
                                                             </select>
                                                         </div>
                                                     </div>

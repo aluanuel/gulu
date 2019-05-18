@@ -173,7 +173,7 @@
                                                             <th>subcounty</th>
                                                             <th>parish</th>
                                                             <th>location</th>
-                                                            <th style="width:70px;">action</th>
+                                                            <th style="width:70px;">actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

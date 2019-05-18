@@ -25,3 +25,21 @@ function getSpecificDetails($table,$column_return,$where){
     }
     return $data;
 }
+function submissionReport($type, $message) {
+    if ($type == 'success') {
+        $alert = '<div class="alert alert-success alert-dismissible" style="height: 40px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p class="text-center" style="font-size: 16px;">' . $message . '</p></div>';
+    }elseif ($type == 'warning') {
+        $alert = '<div class="alert alert-warning alert-dismissible" style="height: 40px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p class="text-center" style="font-size: 16px;">' . $message . '</p>
+              </div>';
+    }elseif ($type == 'error') {
+        $alert = '<div class="alert alert-danger alert-dismissible" style="height: 40px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p class="text-center" style="font-size: 16px;">' . $message . '</p>
+              </div>';
+    }
+    return $alert;
+}

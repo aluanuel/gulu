@@ -228,6 +228,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="assets/dist/js/demo.js"></script>
 <script>
+    var ac_initials = '';
+    var fo_code = '';
     $(function () {
           //when page loads
         // $(document).ready(function () {
@@ -280,5 +282,22 @@
                 $('#new_village').hide();
             }
         })
+        $('#selected_id_field_officer').change(function (){
+            var text_value = $(this).children("option:selected").text();
+            fo_code = text_value.split(" ~ ",2);
+            $('#create_lead_farmer_code').val(ac_initials[1]+'/'+fo_code[1]);
+            $('#create_lead_farmer_code').show();
+//            console.log($('#lead_farmer_code').val());
+// console.log(ac_initials[1]+'/'+fo_code[1]);
+        })
+        $('#selected_id_area_coordinator').change(function (){
+            var text_value = $(this).children("option:selected").text();
+            ac_initials = text_value.split(" ~ ",2);
+//            console.log(ac_initials[1]);
+        })
+//        $('#lead_farmer_code').focus(function (){
+//            $('#lead_farmer_code').val(ac_initials+'/'+fo_code);
+//        })
     })
+
 </script>

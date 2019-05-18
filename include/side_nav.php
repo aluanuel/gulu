@@ -48,11 +48,8 @@
             <li><a href="index.php?page=training_trainers_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
-<<<<<<< HEAD
-<!--        <li class="treeview">
-=======
+
         <!--<li class="treeview">
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
           <a href="#">
             <i class="fa fa-circle"></i>
             <span>Training of Field Officers</span>
@@ -97,11 +94,7 @@
           </a>
         </li>
         <li class="">
-<<<<<<< HEAD
-          <a href="#">
-=======
           <a href="index.php?page=lead_farmer">
->>>>>>> 55144d1c135425f85850ba9d7ccf488fe1b42fff
             <i class="fa fa-circle"></i>
             <span>Lead Farmers</span>
           </a>

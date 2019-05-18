@@ -45,6 +45,11 @@ switch ($page) {
             include 'pages/' . $page . '.php';
         break;
 
+    case 'password_reset':
+        if (file_exists('pages/' . $page . '.php'))
+            include 'pages/' . $page . '.php';
+        break;
+
     case 'training_farmers':
         if (file_exists('pages/tof/' . $page . '.php'))
             include 'pages/tof/' . $page . '.php';
@@ -106,6 +111,11 @@ switch ($page) {
     case 'training_venue':
         if (file_exists('pages/training_venue/' . $page . '.php'))
             include 'pages/training_venue/' . $page . '.php';
+        break;
+
+    case 'video_screening':
+        if (file_exists('pages/video_screening/' . $page . '.php'))
+            include 'pages/video_screening/' . $page . '.php';
         break;
         
 }

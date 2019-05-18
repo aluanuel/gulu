@@ -48,7 +48,11 @@
             <li><a href="index.php?page=training_trainers_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
           </ul>
         </li>
+<<<<<<< HEAD
+<!--        <li class="treeview">
+=======
         <!--<li class="treeview">
+>>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
           <a href="#">
             <i class="fa fa-circle"></i>
             <span>Training of Field Officers</span>

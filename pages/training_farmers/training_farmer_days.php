@@ -43,13 +43,11 @@
         $ofs = Input::get('ofs');
         $others = Input::get('others');
         $reviewed_by = Input::get('reviewed_by');
-
         if(DB::getInstance()->checkRows("SELECT * FROM training_farmers WHERE fo_name = '$fo_name' && lf_name = '$lf_name'  && training_date = '$enrolment_date' && id_district = '$id_district'  &&
         id_area_coordinator = '$id_area_coordinator' &&
         id_field_officer = '$id_field_officer'  &&
         id_lead_farmer = '$id_lead_farmer' && id_subcounty = '$id_subcounty'  &&
         id_parish = '$id_parish' && id_module = '$id_module'  && module_repetition = '$module_repetition' && male_ofs = '$male_ofs' && female_ofs = '$female_ofs' && male_youth_ofs = '$male_youth_ofs' && female_youth_ofs = '$female_youth_ofs' && total_ofs = '$total_ofs' && total_youth_ofs = '$total_youth_ofs' && lfs = '$lfs' && ofs = '$ofs' && others = '$others' && reviewed_by = '$reviewed_by'")){
-
         }else{
            $array_training_lfs = array("training_date"=>$enrolment_date,"id_area_coordinator"=>$id_area_coordinator,"id_district"=>$id_district,"id_parish"=>$id_parish,"id_subcounty"=>$id_subcounty,"id_module"=>$id_module,"id_field_officer"=>$id_field_officer,"id_lead_farmer"=>$id_lead_farmer,"id_training_venue"=>$id_training_venue,"module_repetition"=>$module_repetition,"fo_name"=>$fo_name,"lf_name"=>$lf_name,"male_ofs"=>$male_ofs,"female_ofs"=>$female_ofs,"male_youth_ofs"=>$male_youth_ofs ,"female_youth_ofs"=>$female_youth_ofs ,"total_ofs"=>$total_ofs,"total_youth_ofs"=>$total_youth_ofs,"lfs"=>$lfs,"ofs"=>$ofs,"others"=>$others,"reviewed_by"=>$reviewed_by);
           DB::getInstance()->insert('training_farmers',$array_training_lfs);
@@ -216,7 +214,6 @@
                   </div>
                  <!-- <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Production Area</label>
-
                     <div class="col-sm-10">
                       <select class="form-control select2" style="width: 100%;" name="id_production_area">
                   <option>--Select--</option>

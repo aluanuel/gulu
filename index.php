@@ -79,7 +79,6 @@ switch ($page) {
         if (file_exists('pages/modules/' . $page . '.php'))
             include 'pages/modules/' . $page . '.php';
         break;
-<<<<<<< HEAD
     case 'training_lead_farmer':
         if (file_exists('pages/training_lead_farmer/' . $page . '.php'))
             include 'pages/training_lead_farmer/' . $page . '.php';
@@ -108,7 +107,6 @@ switch ($page) {
         if (file_exists('pages/video_screening/' . $page . '.php'))
             include 'pages/video_screening/' . $page . '.php';
         break;
-=======
 
     case 'training_venue':
         if (file_exists('pages/training_venue/' . $page . '.php'))
@@ -120,7 +118,5 @@ switch ($page) {
             include 'pages/video_screening/' . $page . '.php';
         break;
         
-        
->>>>>>> 55144d1c135425f85850ba9d7ccf488fe1b42fff
 }
 ?>

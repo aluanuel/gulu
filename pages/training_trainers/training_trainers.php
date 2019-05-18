@@ -404,6 +404,7 @@
                   <th>ofs</th>
                   <th>others</th>
                   <th>reviewed_by</th>
+                  <th>action</th>
                 </tr>
                 </thead>
                 <tbody>

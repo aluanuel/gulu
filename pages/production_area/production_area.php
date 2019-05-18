@@ -164,21 +164,12 @@
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_village" name="select_id_village">
                                                                 <option>--Select--</option>
                                                                 <option  value="1">Arua</option>
-                                                                <option>California</option>
-                                                                <option>Delaware</option>
-                                                                <option>Tennessee</option>
-                                                                <option>Texas</option>
+                                                                
                                                                 <option value="new_village">Add Village</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group" id="new_village">
-                                                        <label for="inputName" class="col-sm-2 control-label">Village</label>
-
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="inputName" name="name_village" placeholder="Enter name of Village" autocomplete="off">
-                                                        </div>
-                                                    </div>
+                                            
 
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">

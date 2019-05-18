@@ -45,19 +45,11 @@
         $payment_status = Input::get('payment_status');
        $training_by = Input::get('training_by');
       //  $reviewed_by = Input::get('reviewed_by');
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
         if(DB::getInstance()->checkRows("SELECT * FROM video_screening WHERE fo_name = '$fo_name' && lf_name = '$lf_name'  && screening_date = '$enrolment_date'  &&
         id_area_coordinator = '$id_area_coordinator' &&
         id_field_officer = '$id_field_officer'  && other_person_name='$other_person_name' &&  person_to_pay = '$person_to_pay' &&
         id_lead_farmer = '$id_lead_farmer' && id_subcounty = '$id_subcounty'  &&
         id_parish = '$id_parish' && id_module = '$id_module'  && module_repetition = '$module_repetition' && male = '$male' && female = '$female' && youth = '$youth' && total_attendance = '$total_attendance'  && report_number = '$report_number' && payment_status = '$payment_status' && training_by ='$training_by'")){
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
         }else{
            $array_training_lfs = array("screening_date"=>$enrolment_date,"id_area_coordinator"=>$id_area_coordinator,"id_parish"=>$id_parish,"id_subcounty"=>$id_subcounty,"id_module"=>$id_module,"id_field_officer"=>$id_field_officer,"id_lead_farmer"=>$id_lead_farmer,"id_training_venue"=>$id_training_venue,"module_repetition"=>$module_repetition,"fo_name"=>$fo_name,"lf_name"=>$lf_name,"male"=>$male,"female"=>$female,"youth"=>$youth ,"total_attendance"=>$total_attendance,"report_number"=>$report_number,"payment_status"=>$payment_status,"other_person_name"=>$other_person_name,"person_to_pay"=>$person_to_pay,"training_by"=>$training_by);
           DB::getInstance()->insert('video_screening',$array_training_lfs);
@@ -248,10 +240,6 @@
                   </div>
                  <!-- <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Production Area</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
                     <div class="col-sm-10">
                       <select class="form-control select2" style="width: 100%;" name="id_production_area">
                   <option>--Select--</option>
@@ -289,10 +277,6 @@
                   </div>
                    <!-- <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">female youth ofs</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputName" name="female_youth_ofs" placeholder="Enter Number of female youth organic farmers" autocomplete="off">
                     </div>
@@ -306,10 +290,6 @@
                   </div>
                    <!-- <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Total youth ofs</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputName" name="total_youth_ofs" placeholder="total of youth organic farmers" autocomplete="off">
                     </div>
@@ -330,20 +310,12 @@
                   </div>
                  <!-- <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">others</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">reviewed_by</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
                     </div>
@@ -460,8 +432,4 @@
   <!-- /.content-wrapper -->
 <?php include 'include/footer.php';?>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> ad51f02f74e13f6ec09b52418475b0aac3d48f60

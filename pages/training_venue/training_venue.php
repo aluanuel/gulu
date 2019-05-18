@@ -45,10 +45,10 @@
                     $location = Input::get('location_training_venue');
                     $arrayUpdateVenue = array("venue_name" => $name_training_venue, "id_production_area" => $id_production_area, "id_district" => $id_district, "id_subcounty" => $id_subcounty,
                         "id_parish" => $id_parish, "location" => $location);
-                    DB::getInstance()->update("training_venue", $id_venue, $arrayUpdateVenue, "id_venue");
+                    DB::getInstance()->update("training_venue", $id_venue, $arrayUpdateVenue, "id_training_venue");
                 }elseif (Input::exists() && Input::get('delete_training_venue') == 'delete_training_venue'){
                            $id_venue = Input::get('id_venue');
-                           DB::getInstance()->query("DELETE FROM training_venue WHERE id_venue = $id_venue");
+                           DB::getInstance()->query("DELETE FROM training_venue WHERE id_training_venue = $id_venue");
                         }
                 ?>
                 <!-- Main content -->
@@ -173,7 +173,7 @@
                                                             <th>subcounty</th>
                                                             <th>parish</th>
                                                             <th>location</th>
-                                                            <th style="width:70px;">action</th>
+                                                            <th style="width:70px;">actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -190,12 +190,12 @@
                                                                 <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $training_query->id_subcounty)); ?> </td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $training_query->id_parish)); ?> </td>
                                                                 <td><?php echo strtoupper($training_query->location); ?> </td>
-                                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_training_venue<?php echo $training_query->id_venue; ?>">
+                                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_training_venue<?php echo $training_query->id_training_venue; ?>">
                                                                         Edit
-                                                                    </button><button id="restricted_to_admin" type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete_training_venue<?php echo $training_query->id_venue; ?>">
+                                                                    </button><button id="restricted_to_admin" type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete_training_venue<?php echo $training_query->id_training_venue; ?>">
                                                                         Delete
                                                                     </button></td>
-                                                        <div class="modal fade modal" id="edit_training_venue<?php echo $training_query->id_venue; ?>">
+                                                        <div class="modal fade modal" id="edit_training_venue<?php echo $training_query->id_training_venue; ?>">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -210,7 +210,7 @@
                                                                                 <div class="row form-group">
                                                                                     <label for="inputName" class="col-sm-3 control-label">Venue Name</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <input type="hidden" class="form-control" name="id_venue" value="<?php echo $training_query->id_venue; ?>">
+                                                                                        <input type="hidden" class="form-control" name="id_venue" value="<?php echo $training_query->id_training_venue; ?>">
                                                                                         <input type="text" class="form-control" id="inputName" name="name_training_venue" placeholder="Enter name of venue" autocomplete="off" value="<?php echo strtoupper($training_query->venue_name); ?>">
                                                                                     </div>
                                                                                 </div>
@@ -290,7 +290,7 @@
                                                             <!-- /.modal-dialog -->
                                                         </div>
                                                         <!-- /.modal -->
-                                                        <div class="modal fade modal" id="delete_training_venue<?php echo $training_query->id_venue; ?>">
+                                                        <div class="modal fade modal" id="delete_training_venue<?php echo $training_query->id_training_venue; ?>">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -302,7 +302,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="box-body">
                                                                                 <h3 class="text-danger text-center">Delete this record?</h3>
-                                                                                <input type="hidden" class="form-control" name="id_venue" value="<?php echo $training_query->id_venue; ?>">
+                                                                                <input type="hidden" class="form-control" name="id_venue" value="<?php echo $training_query->id_training_venue; ?>">
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">

@@ -57,3 +57,6 @@
       background: transparent !important;
     }
 </style>
+<?php
+    $notification = '';
+?>

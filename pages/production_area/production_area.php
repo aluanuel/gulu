@@ -26,17 +26,47 @@
                     $subcounty = Input::get('select_id_subcounty');
                     $parish = Input::get('select_id_parish');
                     $village = Input::get('select_id_village');
-//                    $new_district = Input::get('name_district');
+                    $new_district = Input::get('name_district');
+                    $new_subcounty = Input::get('name_subcounty');
+                    $new_parish = Input::get('name_parish');
+                    $new_village = Input::get('name_village');
                     // check if the input values are numbers(id) or text.
-//                    if ($district == 'new_district') {
-//                        $arrayNewDistrict = array("district_name" => $new_district);
-//                        if (DB::getInstance()->checkRows("SELECT * FROM district WHERE district_name = '$new_district'")) {
-//                            
-//                        } else {
-//                            DB::getInstance()->insert('district', $arrayNewDistrict);
-//                            $district = getLastInsertId('district', 'id_district');
-//                        }
-//                    }
+                   if ($district == 'new_district') {
+                       $arrayNewDistrict = array("district_name" => $new_district);
+                       if (DB::getInstance()->checkRows("SELECT * FROM district WHERE district_name = '$new_district'")) {
+                           
+                       } else {
+                           DB::getInstance()->insert('district', $arrayNewDistrict);
+                           $district = getLastInsertId('district', 'id_district');
+                       }
+                   }
+
+                   if($subcounty == 'new_subcounty'){
+                    $arrayNewSubcounty = array("subcounty_name" =>$new_subcounty,"id_district"=>$district);
+                    if(DB::getInstance()->checkRows("SELECT * FROM subcounty WHERE subcounty_name = '$new_subcounty' AND id_district = $district ")){
+                    }else{
+                        DB::getInstance()->insert('subcounty',$arrayNewSubcounty);
+                        $subcounty = getLastInsertId('subcounty','id_subcounty');
+                    }
+                   }
+
+                   if($parish == 'new_parish'){
+                    $arrayNewParish = array("parish_name" =>$new_parish,"id_subcounty"=>$subcounty,"id_district"=>$district);
+                    if(DB::getInstance()->checkRows("SELECT * FROM parish WHERE parish_name = '$new_parish' AND id_subcounty = $subcounty AND id_district = $district ")){
+                    }else{
+                        DB::getInstance()->insert('parish',$arrayNewParish);
+                        $parish = getLastInsertId('parish','id_parish');
+                    }
+                   }
+
+                   if($village == 'new_village'){
+                    $arrayNewVillage = array("village_name" =>$new_village,"id_district"=>$district,"id_subcounty"=>$subcounty,"id_parish"=>$parish);
+                    if(DB::getInstance()->checkRows("SELECT * FROM village WHERE village_name = '$new_village' AND id_parish = $parish AND id_subcounty = $subcounty AND id_district = $district ")){
+                    }else{
+                        DB::getInstance()->insert('village',$arrayNewVillage);
+                        $village = getLastInsertId('village','id_village');
+                    }
+                   }
 
                     if (DB::getInstance()->checkRows("SELECT * FROM production_area WHERE production_area = '$name_pdn_area' AND id_district = '$district' AND id_subcounty = '$subcounty' AND id_parish = '$parish' AND id_village = '$village'")) {
                         
@@ -82,14 +112,14 @@
                                             <div class="box-body">
                                                 <form class="form-horizontal" action="" method="post">
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Production Area</label>
+                                                        <label class="col-sm-2 control-label">Production Area</label>
 
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName" name="name_production_area" placeholder="Enter name of place" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">District</label>
+                                                        <label class="col-sm-2 control-label">District</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_district" name="select_id_district">
@@ -105,14 +135,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group" id="new_district">
-                                                        <label for="inputName" class="col-sm-2 control-label">Name of District</label>
+                                                        <label class="col-sm-2 control-label">Name of District</label>
 
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName" name="name_district" placeholder="Enter name of District" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                        <label class="col-sm-2 control-label">Subcounty</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_subcounty" name="select_id_subcounty">
@@ -128,14 +158,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group" id="new_subcounty">
-                                                        <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                        <label class="col-sm-2 control-label">Name of Subcounty</label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="inputName" name="name_district" placeholder="Enter name of District" autocomplete="off">
+                                                            <input type="text" class="form-control" id="inputName" name="name_subcounty" placeholder="Enter name of District" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                        <label class="col-sm-2 control-label">Parish</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="select_id_parish">
@@ -151,25 +181,36 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group" id="new_parish">
-                                                        <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                        <label class="col-sm-2 control-label">Name of Parish</label>
 
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName" name="name_parish" placeholder="Enter name of Parish" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Village</label>
+                                                        <label class="col-sm-2 control-label">Village</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_village" name="select_id_village">
                                                                 <option>--Select--</option>
                                                                 <option  value="1">Arua</option>
-                                                                
+                                                                <?php
+                                                                $village_query = DB::getInstance()->query("SELECT * FROM village");
+                                                                foreach ($village_query->results() as $village_query):
+                                                                    ?>
+                                                                    <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name); ?></option>
+                                                                <?php endforeach; ?>
                                                                 <option value="new_village">Add Village</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                            
+                                                    <div class="form-group" id="new_village">
+                                                        <label class="col-sm-2 control-label">Name of Village</label>
+
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputName" name="name_village" placeholder="Enter name of Village" autocomplete="off">
+                                                        </div>
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
@@ -212,7 +253,7 @@
                                                                 <td><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $production->id_district)); ?> </td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $production->id_subcounty)); ?> </td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $production->id_parish)); ?> </td>
-                                                                <td><?php echo $production->id_village; ?> </td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('village', 'village_name', 'id_village=' . $production->id_village)); ?></td>
                                                                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_production_area<?php echo $production->id_production_area; ?>">
                                                                         Edit
                                                                     </button><button id="restricted_to_admin" type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete_production_area<?php echo $production->id_production_area; ?>">
@@ -230,7 +271,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="box-body">
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Production Area</label>
+                                                                                    <label class="col-sm-3 control-label">Production Area</label>
                                                                                     <input type="hidden" class="form-control" name="id_production_area" value="<?php echo $production->id_production_area; ?>">
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_production_area" name="name_production_area">
@@ -245,7 +286,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">District</label>
+                                                                                    <label class="col-sm-3 control-label">District</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_district" name="id_district">
                                                                                             <option value="<?php echo $production->id_district; ?>"><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $production->id_district)); ?></option>
@@ -259,7 +300,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Subcounty</label>
+                                                                                    <label class="col-sm-3 control-label">Subcounty</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_subcounty" name="id_subcounty">
                                                                                             <option value="<?php echo $production->id_subcounty; ?>"><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $production->id_subcounty)); ?></option>
@@ -273,7 +314,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Parish</label>
+                                                                                    <label class="col-sm-3 control-label">Parish</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_parish">
                                                                                             <option value="<?php echo $production->id_parish; ?>"><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $production->id_parish)); ?></option>
@@ -287,7 +328,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Village</label>
+                                                                                    <label class="col-sm-3 control-label">Village</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_village">
                                                                                             <option value="<?php echo $production->id_village; ?>"><?php echo strtoupper(getSpecificDetails('village', 'village_name', 'id_village=' . $production->id_village)); ?></option>
@@ -342,6 +383,7 @@
                                                         <!-- /.modal -->
                                                         </tr>
                                                         <?php
+                                                        $x++;
                                                     endforeach;
                                                     ?>
 

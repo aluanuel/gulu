@@ -79,6 +79,36 @@ switch ($page) {
         if (file_exists('pages/modules/' . $page . '.php'))
             include 'pages/modules/' . $page . '.php';
         break;
+<<<<<<< HEAD
+    case 'training_lead_farmer':
+        if (file_exists('pages/training_lead_farmer/' . $page . '.php'))
+            include 'pages/training_lead_farmer/' . $page . '.php';
+        break;
+    case 'training_lead_farmer_days':
+        if (file_exists('pages/training_lead_farmer/' . $page . '.php'))
+            include 'pages/training_lead_farmer/' . $page . '.php';
+        break;
+    case 'training_trainers':
+        if (file_exists('pages/training_trainers/' . $page . '.php'))
+            include 'pages/training_trainers/' . $page . '.php';
+        break;
+   case 'training_trainers_days':
+        if (file_exists('pages/training_trainers/' . $page . '.php'))
+            include 'pages/training_trainers/' . $page . '.php';
+        break;
+    case 'training_farmer':
+        if (file_exists('pages/training_farmers/' . $page . '.php'))
+            include 'pages/training_farmers/' . $page . '.php';
+        break;
+    case 'training_farmer_days':
+        if (file_exists('pages/training_farmers/' . $page . '.php'))
+            include 'pages/training_farmers/' . $page . '.php';
+        break;
+    case 'video_screening':
+        if (file_exists('pages/video_screening/' . $page . '.php'))
+            include 'pages/video_screening/' . $page . '.php';
+        break;
+=======
 
     case 'training_venue':
         if (file_exists('pages/training_venue/' . $page . '.php'))
@@ -91,5 +121,6 @@ switch ($page) {
         break;
         
         
+>>>>>>> 55144d1c135425f85850ba9d7ccf488fe1b42fff
 }
 ?>

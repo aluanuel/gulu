@@ -25,19 +25,6 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-circle"></i>
-                    <span>Training of Farmers</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="index.php?page=training_farmer"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
-                    <li><a href="index.php?page=training_farmer_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-circle"></i>
                     <span>Training of Trainers</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -48,20 +35,6 @@
                     <li><a href="index.php?page=training_trainers_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
                 </ul>
             </li>
-
-            <!--<li class="treeview">
-              <a href="#">
-                <i class="fa fa-circle"></i>
-                <span>Training of Field Officers</span>
-                <span class="pull-right-container">
-                 <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Field Officers</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
-              </ul>
-            </li>-->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-circle"></i>
@@ -75,6 +48,32 @@
                     <li><a href="index.php?page=training_lead_farmer"><i class="fa fa-circle-o"></i>Field Day</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-circle"></i>
+                    <span>Training of Farmers</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="index.php?page=training_farmer"><i class="fa fa-circle-o"></i>Training of Farmers</a></li>
+                    <li><a href="index.php?page=training_farmer_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
+                </ul>
+            </li>
+            <!--<li class="treeview">
+              <a href="#">
+                <i class="fa fa-circle"></i>
+                <span>Training of Field Officers</span>
+                <span class="pull-right-container">
+                 <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Training of Field Officers</a></li>
+                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Field Day</a></li>
+              </ul>
+            </li>-->
             <li class="">
                 <a href="index.php?page=video_screening">
                     <i class="fa fa-circle"></i>

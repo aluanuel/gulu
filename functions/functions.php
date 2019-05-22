@@ -119,3 +119,7 @@ function markModule($return) {
         return 0;
     }
 }
+
+function addition($item1, $item2) {
+    return $item1 + $item2;
+}

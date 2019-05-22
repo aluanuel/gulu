@@ -51,7 +51,7 @@
         id_parish = '$id_parish' && id_module = '$id_module'  && module_repetition = '$module_repetition' && male_ofs = '$male_ofs' && female_ofs = '$female_ofs' && male_youth_ofs = '$male_youth_ofs' && female_youth_ofs = '$female_youth_ofs' && total_ofs = '$total_ofs' && total_youth_ofs = '$total_youth_ofs' && lfs = '$lfs' && ofs = '$ofs' && others = '$others' && reviewed_by = '$reviewed_by'")) {
                         $notification = submissionReport('warning', 'Similar record exists iin the databse');
                     } else {
-                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_lead_farmer" => $id_lead_farmer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "fo_name" => $fo_name, "lf_name" => $lf_name, "male_ofs" => $male_ofs, "female_ofs" => $female_ofs, "male_youth_ofs" => $male_youth_ofs, "female_youth_ofs" => $female_youth_ofs, "total_ofs" => $total_ofs, "total_youth_ofs" => $total_youth_ofs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by);
+                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_lead_farmer" => $id_lead_farmer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "fo_name" => $fo_name, "lf_name" => $lf_name, "male_ofs" => $male_ofs, "female_ofs" => $female_ofs, "male_youth_ofs" => $male_youth_ofs, "female_youth_ofs" => $female_youth_ofs, "total_ofs" => $total_ofs, "total_youth_ofs" => $total_youth_ofs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by,"id_user"=>$current_user_id);
                         if (DB::getInstance()->insert('training_farmers', $array_training_lfs)) {
                             $notification = submissionReport('success', 'Data saved successfully');
                         } else {
@@ -393,7 +393,12 @@ foreach ($query_pdn_area->results() as $pdn_area):
                                                     <tbody>
 <?php
 $x = 1;
+if($current_user_type=='data_clerk'){
+$training = DB::getInstance()->query("SELECT * FROM training_farmers WHERE id_user=$current_user_id");
+}
+else{
 $training = DB::getInstance()->query("SELECT * FROM training_farmers");
+}
 foreach ($training->results() as $training):
     ?>
                                                             <tr>

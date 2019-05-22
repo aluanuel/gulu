@@ -45,10 +45,6 @@
         $payment_status = Input::get('payment_status');
        $training_by = Input::get('training_by');
       //  $reviewed_by = Input::get('reviewed_by');
-<<<<<<< HEAD
-=======
-
->>>>>>> 57898c7f75365ad9d297ebd2c8776bb56c6f07ce
         if(DB::getInstance()->checkRows("SELECT * FROM video_screening WHERE fo_name = '$fo_name' && lf_name = '$lf_name'  && screening_date = '$enrolment_date'  &&
         id_area_coordinator = '$id_area_coordinator' &&
         id_field_officer = '$id_field_officer'  && other_person_name='$other_person_name' &&  person_to_pay = '$person_to_pay' &&
@@ -242,24 +238,6 @@
                       <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off">
                     </div>
                   </div>
-                 <!-- <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Production Area</label>
-<<<<<<< HEAD
-=======
-
->>>>>>> 57898c7f75365ad9d297ebd2c8776bb56c6f07ce
-                    <div class="col-sm-10">
-                      <select class="form-control select2" style="width: 100%;" name="id_production_area">
-                  <option>--Select--</option>
-                  <?php
-                    $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-                    foreach ($query_pdn_area->results() as $pdn_area):
-                  ?>
-                  <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area);?></option>
-                <?php endforeach; ?>
-                </select>
-                    </div>
-                  </div>-->
                   
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Male</label>
@@ -440,8 +418,5 @@
   <!-- /.content-wrapper -->
 <?php include 'include/footer.php';?>
 </body>
-<<<<<<< HEAD
-=======
 </html>
->>>>>>> 57898c7f75365ad9d297ebd2c8776bb56c6f07ce
 </html>

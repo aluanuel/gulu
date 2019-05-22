@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2019  Theme by <a href="https://adminlte.io">Almsaeed Studio</a> Designed by <a href="thinkinnovation.tech">Think Innovation, Arua.</a></strong> All rights
     reserved.
 </footer>
 
@@ -294,6 +294,15 @@
             var text_value = $(this).children("option:selected").text();
             ac_initials = text_value.split(" ~ ",2);
 //            console.log(ac_initials[1]);
+        })
+//        $('#selected_id_field_officer_training').change(function (){
+//            var text_value = $(this).children("option:selected").text();
+//            var fo_name = "<?php // getSpecificDetails('field_officer', 'fo_name','id_filed_officer'.'?>"+text_value+"<?php')?>";
+//            $('#field_officer_name').val('fo_name');
+//        })
+        $('#id_training_fo_complete').change(function (){
+          $('#checkbox_select_th').hide();
+          $('#button_select_th').show();
         })
 //        $('#lead_farmer_code').focus(function (){
 //            $('#lead_farmer_code').val(ac_initials+'/'+fo_code);

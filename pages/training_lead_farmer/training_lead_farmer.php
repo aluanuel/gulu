@@ -135,7 +135,7 @@
                     $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
                     foreach ($fo_query->results() as $fo_query):
                   ?>
-                  <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer);?></option>
+                  <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->field_officer_code);?></option>
                 <?php endforeach; ?>
                 </select>
               </div>
@@ -631,7 +631,7 @@
   </div>
 
           <!-- /.modal -->
-                                                        <div class="modal fade modal" id="delete_training_lfs<?php echo $production->id_production_area; ?>">
+                                                        <div class="modal fade modal" id="delete_training_lfs<?php echo $training->id_training_lfs; ?>">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -643,7 +643,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="box-body">
                                                                                 <h3 class="text-danger text-center">Delete this record?</h3>
-                                                                                <input type="hidden" class="form-control" name="id_training_lfs" value="<?php echo $production->id_training_lfs; ?>">
+                                                                                <input type="hidden" class="form-control" name="id_training_lfs" value="<?php echo $training->id_training_lfs; ?>">
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">

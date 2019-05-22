@@ -35,16 +35,23 @@
                     $gender = Input::get('gender');
                     $age = Input::get('age');
                     $project = 'SDU';
-
-                    if (DB::getInstance()->checkRows("SELECT * FROM lead_farmers WHERE lf_name = '$name' && id_production_area = '$production_area' && id_district = '$district'")) {
-                        
-                    } else {
-                        $array_lf = array("join_date" => $enrolment_date, "id_area_coordinator" => $area_coordinator, "id_field_officer" => $field_officer, "lead_farmer_code" => $lead_farmer_code, "lf_name" => $name, "id_production_area" => $production_area, "id_district" => $district, "id_subcounty" => $subcounty, "id_parish" => $parish, "id_village" => $village, "contact" => $telephone, "sex" => $gender, "age" => $age, "project" => $project);
-                        if (DB::getInstance()->insert('lead_farmers', $array_lf)) {
-                            $notification = submissionReport('success', 'Lead Farmer ' . strtoupper($name) . ' added successfully');
-                        } else {
+                    // counts the number of lead farmers the selected field officer count, a max of 10 lead farmers per field officer
+                    $lead_farmers_of_field_officer = countEntries('lead_farmers', 'id_lead_farmer', 'id_field_officer=' . $field_officer);
+                    if ($lead_farmers_of_field_officer < 10) {
+                        $lead_farmers_of_field_officer +=1;
+                        $lead_farmer_code = $lead_farmer_code . '/' .$lead_farmers_of_field_officer;
+                        if (DB::getInstance()->checkRows("SELECT * FROM lead_farmers WHERE lf_name = '$name' && id_production_area = '$production_area' && id_district = '$district'")) {
                             
+                        } else {
+                            $array_lf = array("join_date" => $enrolment_date, "id_area_coordinator" => $area_coordinator, "id_field_officer" => $field_officer, "lead_farmer_code" => $lead_farmer_code, "lf_name" => $name, "id_production_area" => $production_area, "id_district" => $district, "id_subcounty" => $subcounty, "id_parish" => $parish, "id_village" => $village, "contact" => $telephone, "sex" => $gender, "age" => $age, "project" => $project);
+                            if (DB::getInstance()->insert('lead_farmers', $array_lf)) {
+                                $notification = submissionReport('success', 'Lead Farmer ' . strtoupper($name) . ' added successfully');
+                            } else {
+                                
+                            }
                         }
+                    } else {
+                        $notification = submissionReport('warning', 'Cannot add more lead farmers for field officer ' . getSpecificDetails('field_officers', 'fo_name', 'id_field_officer=' . $field_officer) . '');
                     }
                 } elseif (Input::exists() && Input::get('save_edit_lead_farmer') == 'save_edit_lead_farmer') {
                     $id_lead_farmer = Input::get('id_lead_farmer');
@@ -64,7 +71,7 @@
                     $project = 'SDU';
 //                    $lf_code_1 = explode($area_coordinator,' ', 2);
 //                    $lf_code_2 = explode($field_officer,' ', 2);
-                    $lead_farmer_code = $lf_code_1[1].'/'.$lf_code_2[1].'/'.getLastInsertId('lead_farmers', id_lead_farmer)+1;
+                    $lead_farmer_code = $lf_code_1[1] . '/' . $lf_code_2[1] . '/' . getLastInsertId('lead_farmers', id_lead_farmer) + 1;
                     $arrayUpdateLeadFarmer = array("join_date" => $enrolment_date, "id_area_coordinator" => $area_coordinator, "id_field_officer" => $field_officer, "lead_farmer_code" => $lead_farmer_code, "lf_name" => $name, "id_production_area" => $production_area, "id_district" => $district, "id_subcounty" => $subcounty, "id_parish" => $parish, "id_village" => $village, "contact" => $telephone, "sex" => $gender, "age" => $age, "project" => $project);
                     if (DB::getInstance()->update('lead_farmers', $id_lead_farmer, $arrayUpdateLeadFarmer, 'id_lead_farmer')) {
                         $notification = submissionReport('success', 'Record for Lead farmer ' . strtoupper($name) . ' updated successfully');
@@ -83,7 +90,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    <?php echo $notification; ?>
+<?php echo $notification; ?>
                     <div class="row">
 
                         <!-- /.col -->
@@ -109,6 +116,7 @@
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="full_name" placeholder="Enter full name" autocomplete="off">
+                                                    <input type="hidden" class="form-control" id="create_lead_farmer_code" name="lead_farmer_code" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -122,7 +130,7 @@
                                                         foreach ($query_ac->results() as $query_ac):
                                                             ?>
                                                             <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -137,15 +145,8 @@
                                                         foreach ($query_fo->results() as $query_fo):
                                                             ?>
                                                             <option value="<?php echo $query_fo->id_field_officer; ?>"><?php echo strtoupper($query_fo->fo_name . ' ~ ' . $query_fo->field_officer_code); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Lead Farmer Code</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="create_lead_farmer_code" name="lead_farmer_code" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -159,7 +160,7 @@
                                                         foreach ($query_pdn_area->results() as $pdn_area):
                                                             ?>
                                                             <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -173,7 +174,7 @@
                                                         foreach ($query_district->results() as $query_district):
                                                             ?>
                                                             <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -188,7 +189,7 @@
                                                         foreach ($subcounty_query->results() as $subcounty_query):
                                                             ?>
                                                             <option  value="<?php echo $subcounty_query->id_subcounty; ?>"><?php echo strtoupper($subcounty_query->subcounty_name); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                         <option value="new_subcounty">Add Subcounty</option>
                                                     </select>
                                                 </div>
@@ -204,7 +205,7 @@
                                                         foreach ($parish_query->results() as $parish_query):
                                                             ?>
                                                             <option  value="<?php echo $parish_query->id_parish; ?>"><?php echo strtoupper($parish_query->parish_name); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                         <option value="new_parish">Add Parish</option>
                                                     </select>
                                                 </div>
@@ -220,7 +221,7 @@
                                                         foreach ($village_query->results() as $village_query):
                                                             ?>
                                                             <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name); ?></option>
-                                                        <?php endforeach; ?>
+<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -331,9 +332,9 @@
                                                                 <td><?php echo strtoupper(getSpecificDetails('field_officers', 'field_officer_code', 'id_field_officer=' . $query_lf->id_field_officer)); ?></td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('production_area', 'production_area', 'id_production_area=' . $query_lf->id_production_area)); ?></td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $query_lf->id_district)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name','id_subcounty='.$query_lf->id_subcounty)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name','id_parish='. $query_lf->id_parish)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('village', 'village_name','id_village='. $query_lf->id_village)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $query_lf->id_subcounty)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $query_lf->id_parish)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('village', 'village_name', 'id_village=' . $query_lf->id_village)); ?></td>
                                                                 <td><?php echo strtoupper($query_lf->contact); ?></td>
                                                                 <td><?php echo strtoupper($query_lf->sex); ?></td>
                                                                 <td><?php echo $query_lf->age; ?></td>
@@ -382,7 +383,7 @@
                                                                                             foreach ($query_ac->results() as $query_ac):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -396,7 +397,7 @@
                                                                                             foreach ($query_fo->results() as $query_fo):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $query_fo->id_field_officer; ?>"><?php echo strtoupper($query_fo->field_officer_code); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -410,7 +411,7 @@
                                                                                             foreach ($production_query->results() as $production):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $production->id_production_area; ?>"><?php echo strtoupper($production->production_area); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -424,7 +425,7 @@
                                                                                             foreach ($district_query->results() as $district_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -438,7 +439,7 @@
                                                                                             foreach ($subcounty_query->results() as $subcounty_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $subcounty_query->id_subcounty; ?>"><?php echo strtoupper($subcounty_query->subcounty_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -452,7 +453,7 @@
                                                                                             foreach ($parish_query->results() as $parish_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $parish_query->id_parish; ?>"><?php echo strtoupper($parish_query->parish_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -466,7 +467,7 @@
                                                                                             foreach ($village_query->results() as $village_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -559,6 +560,6 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-            <?php include 'include/footer.php'; ?>
+<?php include 'include/footer.php'; ?>
     </body>
 </html>

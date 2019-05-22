@@ -193,7 +193,6 @@
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_village" name="select_id_village">
                                                                 <option>--Select--</option>
-                                                                <option  value="1">Arua</option>
                                                                 <?php
                                                                 $village_query = DB::getInstance()->query("SELECT * FROM village");
                                                                 foreach ($village_query->results() as $village_query):

@@ -5,12 +5,7 @@ ob_start();
 <html>
     <?php
     include 'include/header.php';
-    ?>
-    <?php
-    $alert_entry = "";
-if(Input::exists()){
-    Redirect::to('index.php?page=dashboard');
-}
+    
     ?>
     <body class="hold-transition login-page">
         <div class="login-box">
@@ -42,7 +37,7 @@ if(Input::exists()){
                     </div>
                     <div class="row">
                         <div class="col-xs-8 pull-left">
-                            <p class="login-box-msg text-danger"><?php echo $alert_entry; ?></p>
+                            <p class="login-box-msg text-danger"><?php echo $notification; ?></p>
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-4 pull-right">

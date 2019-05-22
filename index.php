@@ -117,6 +117,76 @@ switch ($page) {
         if (file_exists('pages/video_screening/' . $page . '.php'))
             include 'pages/video_screening/' . $page . '.php';
         break;
+
+    case 'trainings_complete_training_trainers':
+        if (file_exists('pages/reports/trainings_completed/' . $page . '.php'))
+            include 'pages/reports/trainings_completed/' . $page . '.php';
+        break;
+
+    case 'trainings_complete_training_lead_farmers':
+        if (file_exists('pages/reports/trainings_completed/' . $page . '.php'))
+            include 'pages/reports/trainings_completed/' . $page . '.php';
+        break;
+
+    case 'trainings_complete_training_farmers':
+        if (file_exists('pages/reports/trainings_completed/' . $page . '.php'))
+            include 'pages/reports/trainings_completed/' . $page . '.php';
+        break;
+
+    case 'trainings_complete_video_screening':
+        if (file_exists('pages/reports/trainings_completed/' . $page . '.php'))
+            include 'pages/reports/trainings_completed/' . $page . '.php';
+        break;
+
+    case 'payment_list_training_trainers':
+        if (file_exists('pages/reports/payment_list/' . $page . '.php'))
+            include 'pages/reports/payment_list/' . $page . '.php';
+        break;
+
+    case 'payment_list_training_lead_farmers':
+        if (file_exists('pages/reports/payment_list/' . $page . '.php'))
+            include 'pages/reports/payment_list/' . $page . '.php';
+        break;
+
+    case 'payment_list_training_farmers':
+        if (file_exists('pages/reports/payment_list/' . $page . '.php'))
+            include 'pages/reports/payment_list/' . $page . '.php';
+        break;
+
+    case 'payment_list_video_screening':
+        if (file_exists('pages/reports/payment_list/' . $page . '.php'))
+            include 'pages/reports/payment_list/' . $page . '.php';
+        break;
+
+    case 'trainings_paid_training_trainers':
+        if (file_exists('pages/reports/trainings_paid/' . $page . '.php'))
+            include 'pages/reports/trainings_paid/' . $page . '.php';
+        break;
+
+    case 'trainings_paid_training_lead_farmers':
+        if (file_exists('pages/reports/trainings_paid/' . $page . '.php'))
+            include 'pages/reports/trainings_paid/' . $page . '.php';
+        break;
+
+    case 'trainings_paid_training_farmers':
+        if (file_exists('pages/reports/trainings_paid/' . $page . '.php'))
+            include 'pages/reports/trainings_paid/' . $page . '.php';
+        break;
+
+    case 'trainings_paid_video_screening':
+        if (file_exists('pages/reports/trainings_paid/' . $page . '.php'))
+            include 'pages/reports/trainings_paid/' . $page . '.php';
+        break;
+    
+    case 'system_users':
+        if (file_exists('pages/settings/accounts/' . $page . '.php'))
+            include 'pages/settings/accounts/' . $page . '.php';
+        break;
+        
+    case 'projects':
+        if (file_exists('pages/settings/projects/' . $page . '.php'))
+            include 'pages/settings/projects/' . $page . '.php';
+        break;
         
 }
 ?>

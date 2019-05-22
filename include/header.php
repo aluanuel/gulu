@@ -37,12 +37,15 @@
 #new_district,#new_subcounty,#new_parish,#new_village,#other_person{
   display: none;
 }
-#restricted_to_admin{
+/*#restricted_to_admin{
   display: none;
-}
+}*/
 #password_reset{
   display: none;
 }
+/*#button_select_th{
+  display: none;
+}*/
 .example-modal .modal {
       position: relative;
       top: auto;

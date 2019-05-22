@@ -72,14 +72,14 @@
                                             <div class="box-body">
                                                 <form class="form-horizontal" action="" method="post">  
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Venue Name</label>
+                                                        <label class="col-sm-2 control-label">Venue Name</label>
 
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName" name="name_training_venue" placeholder="Enter name of venue" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Production Area</label>
+                                                        <label class="col-sm-2 control-label">Production Area</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_production_area" name="id_production_area">
@@ -95,7 +95,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">District</label>
+                                                        <label class="col-sm-2 control-label">District</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_district" name="id_district">
@@ -110,7 +110,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                        <label class="col-sm-2 control-label">Subcounty</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_subcounty" name="id_subcounty">
@@ -125,7 +125,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                        <label class="col-sm-2 control-label">Parish</label>
 
                                                         <div class="col-sm-10">
                                                             <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_parish">
@@ -140,7 +140,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputName" class="col-sm-2 control-label">Location</label>
+                                                        <label class="col-sm-2 control-label">Location</label>
 
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName" name="location_training_venue" placeholder="Enter name of place" autocomplete="off">
@@ -208,14 +208,14 @@
                                                                             <div class="box-body">
 
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Venue Name</label>
+                                                                                    <label class="col-sm-3 control-label">Venue Name</label>
                                                                                     <div class="col-sm-9">
                                                                                         <input type="hidden" class="form-control" name="id_venue" value="<?php echo $training_query->id_training_venue; ?>">
                                                                                         <input type="text" class="form-control" id="inputName" name="name_training_venue" placeholder="Enter name of venue" autocomplete="off" value="<?php echo strtoupper($training_query->venue_name); ?>">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Production Area</label>
+                                                                                    <label class="col-sm-3 control-label">Production Area</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_production_area" name="id_production_area">
                                                                                             <option value="<?php echo $training_query->id_production_area; ?>"><?php echo strtoupper(getSpecificDetails('production_area', 'production_area', 'id_production_area=' . $training_query->id_production_area)); ?></option>
@@ -229,7 +229,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">District</label>
+                                                                                    <label class="col-sm-3 control-label">District</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_district" name="id_district">
                                                                                             <option value="<?php echo $training_query->id_district; ?>"><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $training_query->id_district)); ?></option>
@@ -243,7 +243,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Subcounty</label>
+                                                                                    <label class="col-sm-3 control-label">Subcounty</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_subcounty" name="id_subcounty">
                                                                                             <option value="<?php echo $training_query->id_subcounty; ?>"><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $training_query->id_subcounty)); ?></option>
@@ -257,7 +257,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Parish</label>
+                                                                                    <label class="col-sm-3 control-label">Parish</label>
                                                                                     <div class="col-sm-9">
                                                                                         <select class="form-control select2" style="width: 100%;" id="select_id_parish" name="id_parish">
                                                                                             <option value="<?php echo $training_query->id_parish; ?>"><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $training_query->id_parish)); ?></option>
@@ -271,7 +271,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row form-group">
-                                                                                    <label for="inputName" class="col-sm-3 control-label">Location</label>
+                                                                                    <label class="col-sm-3 control-label">Location</label>
                                                                                     <div class="col-sm-9">
                                                                                         <input type="text" class="form-control" id="inputName" name="location_training_venue" placeholder="Enter name of place" autocomplete="off" value="<?php echo strtoupper($training_query->location); ?>">
                                                                                     </div>
@@ -318,6 +318,7 @@
                                                         <!-- /.modal -->
                                                         </tr>
                                                         <?php
+                                                        $x++;
                                                     endforeach;
                                                     ?>
 

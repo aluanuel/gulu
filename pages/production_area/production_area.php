@@ -31,42 +31,45 @@
                     $new_parish = Input::get('name_parish');
                     $new_village = Input::get('name_village');
                     // check if the input values are numbers(id) or text.
-                   if ($district == 'new_district') {
-                       $arrayNewDistrict = array("district_name" => $new_district);
-                       if (DB::getInstance()->checkRows("SELECT * FROM district WHERE district_name = '$new_district'")) {
-                           
-                       } else {
-                           DB::getInstance()->insert('district', $arrayNewDistrict);
-                           $district = getLastInsertId('district', 'id_district');
-                       }
-                   }
-
-                   if($subcounty == 'new_subcounty'){
-                    $arrayNewSubcounty = array("subcounty_name" =>$new_subcounty,"id_district"=>$district);
-                    if(DB::getInstance()->checkRows("SELECT * FROM subcounty WHERE subcounty_name = '$new_subcounty' AND id_district = $district ")){
-                    }else{
-                        DB::getInstance()->insert('subcounty',$arrayNewSubcounty);
-                        $subcounty = getLastInsertId('subcounty','id_subcounty');
+                    if ($district == 'new_district') {
+                        $arrayNewDistrict = array("district_name" => $new_district);
+                        if (DB::getInstance()->checkRows("SELECT * FROM district WHERE district_name = '$new_district'")) {
+                            
+                        } else {
+                            DB::getInstance()->insert('district', $arrayNewDistrict);
+                            $district = getLastInsertId('district', 'id_district');
+                        }
                     }
-                   }
 
-                   if($parish == 'new_parish'){
-                    $arrayNewParish = array("parish_name" =>$new_parish,"id_subcounty"=>$subcounty,"id_district"=>$district);
-                    if(DB::getInstance()->checkRows("SELECT * FROM parish WHERE parish_name = '$new_parish' AND id_subcounty = $subcounty AND id_district = $district ")){
-                    }else{
-                        DB::getInstance()->insert('parish',$arrayNewParish);
-                        $parish = getLastInsertId('parish','id_parish');
+                    if ($subcounty == 'new_subcounty') {
+                        $arrayNewSubcounty = array("subcounty_name" => $new_subcounty, "id_district" => $district);
+                        if (DB::getInstance()->checkRows("SELECT * FROM subcounty WHERE subcounty_name = '$new_subcounty' AND id_district = $district ")) {
+                            
+                        } else {
+                            DB::getInstance()->insert('subcounty', $arrayNewSubcounty);
+                            $subcounty = getLastInsertId('subcounty', 'id_subcounty');
+                        }
                     }
-                   }
 
-                   if($village == 'new_village'){
-                    $arrayNewVillage = array("village_name" =>$new_village,"id_district"=>$district,"id_subcounty"=>$subcounty,"id_parish"=>$parish);
-                    if(DB::getInstance()->checkRows("SELECT * FROM village WHERE village_name = '$new_village' AND id_parish = $parish AND id_subcounty = $subcounty AND id_district = $district ")){
-                    }else{
-                        DB::getInstance()->insert('village',$arrayNewVillage);
-                        $village = getLastInsertId('village','id_village');
+                    if ($parish == 'new_parish') {
+                        $arrayNewParish = array("parish_name" => $new_parish, "id_subcounty" => $subcounty, "id_district" => $district);
+                        if (DB::getInstance()->checkRows("SELECT * FROM parish WHERE parish_name = '$new_parish' AND id_subcounty = $subcounty AND id_district = $district ")) {
+                            
+                        } else {
+                            DB::getInstance()->insert('parish', $arrayNewParish);
+                            $parish = getLastInsertId('parish', 'id_parish');
+                        }
                     }
-                   }
+
+                    if ($village == 'new_village') {
+                        $arrayNewVillage = array("village_name" => $new_village, "id_district" => $district, "id_subcounty" => $subcounty, "id_parish" => $parish);
+                        if (DB::getInstance()->checkRows("SELECT * FROM village WHERE village_name = '$new_village' AND id_parish = $parish AND id_subcounty = $subcounty AND id_district = $district ")) {
+                            
+                        } else {
+                            DB::getInstance()->insert('village', $arrayNewVillage);
+                            $village = getLastInsertId('village', 'id_village');
+                        }
+                    }
 
                     if (DB::getInstance()->checkRows("SELECT * FROM production_area WHERE production_area = '$name_pdn_area' AND id_district = '$district' AND id_subcounty = '$subcounty' AND id_parish = '$parish' AND id_village = '$village'")) {
                         
@@ -85,7 +88,7 @@
                     $id_village = Input::get('id_village');
                     $arrayUpdateProductionArea = array("production_area" => $name_production_area, "id_district" => $id_district, "id_subcounty" => $id_subcounty, "id_parish" => $id_parish, "id_village" => $id_village);
                     DB::getInstance()->update('production_area', $id_production_area, $arrayUpdateProductionArea, 'id_production_area');
-                }elseif(Input::exists() && Input::get('delete_production_area') == 'delete_production_area'){
+                } elseif (Input::exists() && Input::get('delete_production_area') == 'delete_production_area') {
                     $id_production_area = Input::get('id_production_area');
                     DB::getInstance()->query("DELETE FROM production_area WHERE id_production_area = $id_production_area");
                 }
@@ -129,7 +132,7 @@
                                                                 foreach ($district_query->results() as $district_query):
                                                                     ?>
                                                                     <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name); ?></option>
-                                                                <?php endforeach; ?>
+<?php endforeach; ?>
                                                                 <option value="new_district">Add District</option>
                                                             </select>
                                                         </div>
@@ -152,7 +155,7 @@
                                                                 foreach ($subcounty_query->results() as $subcounty_query):
                                                                     ?>
                                                                     <option  value="<?php echo $subcounty_query->id_subcounty; ?>"><?php echo strtoupper($subcounty_query->subcounty_name); ?></option>
-                                                                <?php endforeach; ?>
+<?php endforeach; ?>
                                                                 <option value="new_subcounty">Add Subcounty</option>
                                                             </select>
                                                         </div>
@@ -175,7 +178,7 @@
                                                                 foreach ($parish_query->results() as $parish_query):
                                                                     ?>
                                                                     <option  value="<?php echo $parish_query->id_parish; ?>"><?php echo strtoupper($parish_query->parish_name); ?></option>
-                                                                <?php endforeach; ?>
+<?php endforeach; ?>
                                                                 <option value="new_parish">Add Parish</option>
                                                             </select>
                                                         </div>
@@ -199,7 +202,7 @@
                                                                 foreach ($village_query->results() as $village_query):
                                                                     ?>
                                                                     <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name); ?></option>
-                                                                <?php endforeach; ?>
+<?php endforeach; ?>
                                                                 <option value="new_village">Add Village</option>
                                                             </select>
                                                         </div>
@@ -281,7 +284,7 @@
                                                                                             foreach ($query_pdn_area->results() as $query_pdn_area):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $query_pdn_area->production_area; ?>"><?php echo strtoupper($query_pdn_area->production_area); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -295,7 +298,7 @@
                                                                                             foreach ($district_query->results() as $district_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $district_query->id_district; ?>"><?php echo strtoupper($district_query->district_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -309,7 +312,7 @@
                                                                                             foreach ($subcounty_query->results() as $subcounty_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $subcounty_query->id_subcounty; ?>"><?php echo strtoupper($subcounty_query->subcounty_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -323,7 +326,7 @@
                                                                                             foreach ($parish_query->results() as $parish_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $parish_query->id_parish; ?>"><?php echo strtoupper($parish_query->parish_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -337,7 +340,7 @@
                                                                                             foreach ($village_query->results() as $village_query):
                                                                                                 ?>
                                                                                                 <option  value="<?php echo $village_query->id_village; ?>"><?php echo strtoupper($village_query->village_name); ?></option>
-                                                                                            <?php endforeach; ?>
+    <?php endforeach; ?>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -410,6 +413,6 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-            <?php include 'include/footer.php'; ?>
+<?php include 'include/footer.php'; ?>
     </body>
 </html>

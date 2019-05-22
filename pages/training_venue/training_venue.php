@@ -46,10 +46,10 @@
                     $arrayUpdateVenue = array("venue_name" => $name_training_venue, "id_production_area" => $id_production_area, "id_district" => $id_district, "id_subcounty" => $id_subcounty,
                         "id_parish" => $id_parish, "location" => $location);
                     DB::getInstance()->update("training_venue", $id_venue, $arrayUpdateVenue, "id_training_venue");
-                }elseif (Input::exists() && Input::get('delete_training_venue') == 'delete_training_venue'){
-                           $id_venue = Input::get('id_venue');
-                           DB::getInstance()->query("DELETE FROM training_venue WHERE id_training_venue = $id_venue");
-                        }
+                } elseif (Input::exists() && Input::get('delete_training_venue') == 'delete_training_venue') {
+                    $id_venue = Input::get('id_venue');
+                    DB::getInstance()->query("DELETE FROM training_venue WHERE id_training_venue = $id_venue");
+                }
                 ?>
                 <!-- Main content -->
                 <section class="content">
@@ -173,7 +173,7 @@
                                                             <th>subcounty</th>
                                                             <th>parish</th>
                                                             <th>location</th>
-                                                            <th style="width:70px;">actions</th>
+                                                            <th>actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

@@ -64,7 +64,7 @@
                     $project = 'SDU';
 //                    $lf_code_1 = explode($area_coordinator,' ', 2);
 //                    $lf_code_2 = explode($field_officer,' ', 2);
-                    $lead_farmer_code = $lf_code_1[1].'/'.$lf_code_2[1].'/'.getLastInsertId('lead_farmers', id_lead_farmer)+1;
+                    $lead_farmer_code = $lf_code_1[1] . '/' . $lf_code_2[1] . '/' . getLastInsertId('lead_farmers', id_lead_farmer) + 1;
                     $arrayUpdateLeadFarmer = array("join_date" => $enrolment_date, "id_area_coordinator" => $area_coordinator, "id_field_officer" => $field_officer, "lead_farmer_code" => $lead_farmer_code, "lf_name" => $name, "id_production_area" => $production_area, "id_district" => $district, "id_subcounty" => $subcounty, "id_parish" => $parish, "id_village" => $village, "contact" => $telephone, "sex" => $gender, "age" => $age, "project" => $project);
                     if (DB::getInstance()->update('lead_farmers', $id_lead_farmer, $arrayUpdateLeadFarmer, 'id_lead_farmer')) {
                         $notification = submissionReport('success', 'Record for Lead farmer ' . strtoupper($name) . ' updated successfully');
@@ -331,9 +331,9 @@
                                                                 <td><?php echo strtoupper(getSpecificDetails('field_officers', 'field_officer_code', 'id_field_officer=' . $query_lf->id_field_officer)); ?></td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('production_area', 'production_area', 'id_production_area=' . $query_lf->id_production_area)); ?></td>
                                                                 <td><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $query_lf->id_district)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name','id_subcounty='.$query_lf->id_subcounty)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name','id_parish='. $query_lf->id_parish)); ?></td>
-                                                                <td><?php echo strtoupper(getSpecificDetails('village', 'village_name','id_village='. $query_lf->id_village)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $query_lf->id_subcounty)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $query_lf->id_parish)); ?></td>
+                                                                <td><?php echo strtoupper(getSpecificDetails('village', 'village_name', 'id_village=' . $query_lf->id_village)); ?></td>
                                                                 <td><?php echo strtoupper($query_lf->contact); ?></td>
                                                                 <td><?php echo strtoupper($query_lf->sex); ?></td>
                                                                 <td><?php echo $query_lf->age; ?></td>

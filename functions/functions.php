@@ -43,3 +43,6 @@ function submissionReport($type, $message) {
     }
     return $alert;
 }
+function addition($item1,$item2){
+    return $item1+$item2; 
+}

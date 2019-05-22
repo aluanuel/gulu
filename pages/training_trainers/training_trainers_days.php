@@ -59,7 +59,7 @@
         && lfs = '$lfs' && ofs = '$ofs' && others = '$others' && reviewed_by = '$reviewed_by'")) {
                         
                     } else {
-                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "male_fos" => $male_fos, "female_fos" => $female_fos, "male_youth_fos" => $male_youth_fos, "female_youth_fos" => $female_youth_fos, "total_fos" => $total_fos, "total_youth_fos" => $total_youth_fos, "total_females" => $total_females, "total_youth" => $total_youth, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by);
+                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "male_fos" => $male_fos, "female_fos" => $female_fos, "male_youth_fos" => $male_youth_fos, "female_youth_fos" => $female_youth_fos, "total_fos" => $total_fos, "total_youth_fos" => $total_youth_fos, "total_females" => $total_females, "total_youth" => $total_youth, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by, 'id_user' => $current_user_id);
                         DB::getInstance()->insert('training_of_trainers', $array_training_lfs);
                     }
                 }
@@ -113,7 +113,7 @@
                                             // $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
                                             // foreach ($fo_query->results() as $fo_query):
                                             ?>
-                                                              <option value="<?php // echo $fo_query->id_field_officer;  ?>"><?php // echo //strtoupper($fo_query->id_field_officer); ?></option>
+                                                              <option value="<?php // echo $fo_query->id_field_officer;   ?>"><?php // echo //strtoupper($fo_query->id_field_officer);  ?></option>
                                             <?php //endforeach; ?>
                                                             </select>
                                                           </div>
@@ -215,7 +215,7 @@
                                             $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
                                             foreach ($query_pdn_area->results() as $pdn_area):
                                                 ?>
-                                                 <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
+                                                     <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
                                             <?php endforeach; ?>
                                            </select>
                                                </div>
@@ -409,7 +409,11 @@
                                                     <tbody>
                                                         <?php
                                                         $x = 1;
-                                                        $training = DB::getInstance()->query("SELECT * FROM training_of_trainers");
+                                                        if ($current_user_type == 'data_clerk') {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_of_trainers WHERE id_user =$current_user_id");
+                                                        } else {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_of_trainers");
+                                                        }
                                                         foreach ($training->results() as $training):
                                                             ?>
                                                             <tr>
@@ -474,6 +478,6 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-<?php include 'include/footer.php'; ?>
+            <?php include 'include/footer.php'; ?>
     </body>
 </html>

@@ -304,9 +304,38 @@
           $('#checkbox_select_th').hide();
           $('#button_select_th').show();
         })
-//        $('#lead_farmer_code').focus(function (){
-//            $('#lead_farmer_code').val(ac_initials+'/'+fo_code);
-//        })
+        $('#id_female_lfs').blur(function (){
+            var male = $('#id_male_lfs').val();
+            var female = $('#id_female_lfs').val();
+            male=parseInt(male);
+            female=parseInt(female);
+            var total = male + female;
+            $('#id_total_lfs').val(total) ; 
+        })
+        $('#id_female_youth_lfs').blur(function (){
+            var male = $('#id_male_youth_lfs').val();
+            var female = $('#id_female_youth_lfs').val();
+            male=parseInt(male);
+            female=parseInt(female);
+            var total = male + female;
+            $('#id_total_youth_lfs').val(total) ; 
+        })
+        $('#id_female_fos').blur(function (){
+            var male = $('#id_male_fos').val();
+            var female = $('#id_female_fos').val();
+            male=parseInt(male);
+            female=parseInt(female);
+            var total = male + female;
+            $('#id_total_fos').val(total) ; 
+        })
+        $('#id_female_youth_fos').blur(function (){
+            var male = $('#id_male_youth_fos').val();
+            var female = $('#id_female_youth_fos').val();
+            male=parseInt(male);
+            female=parseInt(female);
+            var total = male + female;
+            $('#id_total_youth_fos').val(total) ; 
+        })
     })
 
 </script>

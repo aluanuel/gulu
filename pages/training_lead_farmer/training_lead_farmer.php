@@ -43,12 +43,11 @@
                     $reviewed_by = Input::get('reviewed_by');
 
                     if (DB::getInstance()->checkRows("SELECT * FROM training_lfs WHERE name = '$name' && training_date = '$enrolment_date' && id_district = '$id_district'  &&
-        id_area_coordinator = '$id_area_coordinator' &&
-        id_field_officer = '$id_field_officer' && id_subcounty = '$id_subcounty'  &&
+        id_area_coordinator = '$id_area_coordinator' && id_field_officer = '$id_field_officer' && id_subcounty = '$id_subcounty'  &&
         id_parish = '$id_parish' && id_module = '$id_module'  && module_repetition = '$module_repetition' && male_lfs = '$male_lfs' && female_lfs = '$female_lfs' && male_youth_lfs = '$male_youth_lfs' && female_youth_lfs = '$female_youth_lfs' && total_lfs = '$total_lfs' && total_youth_lfs = '$total_youth_lfs' && lfs = '$lfs' && ofs = '$ofs' && others = '$others' && reviewed_by = '$reviewed_by'")) {
                         $notification = submissionReport('warning', 'Similar data exists in the database');
                     } else {
-                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "name" => $name, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by);
+                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "name" => $name, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by, "id_user" => $current_user_id);
                         if (DB::getInstance()->insert('training_lfs', $array_training_lfs)) {
                             $notification = submissionReport('success', 'Data saved successfully');
                         } else {
@@ -80,7 +79,7 @@
                     $others = Input::get('others');
                     $reviewed_by = Input::get('reviewed_by');
 
-                    $array_training_lfs_update = array("id_training_lfs" => $id_training_lfs, "training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "name" => $name, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by);
+                    $array_training_lfs_update = array("id_training_lfs" => $id_training_lfs, "training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "name" => $name, "male_lfs" => $male_lfs, "female_lfs" => $female_lfs, "male_youth_lfs" => $male_youth_lfs, "female_youth_lfs" => $female_youth_lfs, "total_lfs" => $total_lfs, "total_youth_lfs" => $total_youth_lfs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by, "id_user" => $current_user_id);
                     if (DB::getInstance()->update('training_lfs', $id_training_lfs, $array_training_lfs_update, 'id_training_lfs')) {
                         $notification = submissionReport('success', 'Data updated successfully');
                     } else {
@@ -94,7 +93,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                <?php echo $notification; ?>
+                    <?php echo $notification; ?>
                     <div class="row">
 
                         <!-- /.col -->
@@ -121,10 +120,10 @@
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
                                                         <option>--Select--</option>
-<?php
-$query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
-foreach ($query_ac->results() as $query_ac):
-    ?>
+                                                        <?php
+                                                        $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
+                                                        foreach ($query_ac->results() as $query_ac):
+                                                            ?>
                                                             <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -135,10 +134,10 @@ foreach ($query_ac->results() as $query_ac):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                         <option>--Select--</option>
-<?php
-$fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
-foreach ($fo_query->results() as $fo_query):
-    ?>
+                                                        <?php
+                                                        $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
+                                                        foreach ($fo_query->results() as $fo_query):
+                                                            ?>
                                                             <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -156,10 +155,10 @@ foreach ($fo_query->results() as $fo_query):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                         <option>--Select--</option>
-<?php
-$query_district = DB::getInstance()->query("SELECT * FROM district");
-foreach ($query_district->results() as $query_district):
-    ?>
+                                                        <?php
+                                                        $query_district = DB::getInstance()->query("SELECT * FROM district");
+                                                        foreach ($query_district->results() as $query_district):
+                                                            ?>
                                                             <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -170,10 +169,10 @@ foreach ($query_district->results() as $query_district):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                         <option>--Select--</option>
-<?php
-$training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
-foreach ($training_venue_query->results() as $training_venue_query):
-    ?>
+                                                        <?php
+                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                        foreach ($training_venue_query->results() as $training_venue_query):
+                                                            ?>
                                                             <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -184,10 +183,10 @@ foreach ($training_venue_query->results() as $training_venue_query):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                         <option>--Select--</option>
-<?php
-$query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
-foreach ($query_subcounty->results() as $query_subcounty):
-    ?>
+                                                        <?php
+                                                        $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
+                                                        foreach ($query_subcounty->results() as $query_subcounty):
+                                                            ?>
                                                             <option value="<?php echo $query_subcounty->id_subcounty; ?>"><?php echo strtoupper($query_subcounty->subcounty_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -198,10 +197,10 @@ foreach ($query_subcounty->results() as $query_subcounty):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                         <option>--Select--</option>
-<?php
-$query_parish = DB::getInstance()->query("SELECT * FROM parish");
-foreach ($query_parish->results() as $query_parish):
-    ?>
+                                                        <?php
+                                                        $query_parish = DB::getInstance()->query("SELECT * FROM parish");
+                                                        foreach ($query_parish->results() as $query_parish):
+                                                            ?>
                                                             <option value="<?php echo $query_parish->id_parish; ?>"><?php echo strtoupper($query_parish->parish_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -212,10 +211,10 @@ foreach ($query_parish->results() as $query_parish):
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                         <option>--Select--</option>
-<?php
-$query_module = DB::getInstance()->query("SELECT * FROM modules");
-foreach ($query_module->results() as $query_module):
-    ?>
+                                                        <?php
+                                                        $query_module = DB::getInstance()->query("SELECT * FROM modules");
+                                                        foreach ($query_module->results() as $query_module):
+                                                            ?>
                                                             <option value="<?php echo $query_module->id_module; ?>"><?php echo strtoupper($query_module->module_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -234,11 +233,11 @@ foreach ($query_module->results() as $query_module):
                                                <div class="col-sm-10">
                                                  <select class="form-control select2" style="width: 100%;" name="id_production_area">
                                              <option>--Select--</option>
-<?php
-$query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-foreach ($query_pdn_area->results() as $pdn_area):
-    ?>
-                                                 <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
+                                            <?php
+                                            $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
+                                            foreach ($query_pdn_area->results() as $pdn_area):
+                                                ?>
+                                                         <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
                                             <?php endforeach; ?>
                                            </select>
                                                </div>
@@ -359,11 +358,15 @@ foreach ($query_pdn_area->results() as $pdn_area):
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-<?php
-$x = 1;
-$training = DB::getInstance()->query("SELECT * FROM training_lfs");
-foreach ($training->results() as $training):
-    ?>
+                                                        <?php
+                                                        $x = 1;
+                                                        if ($current_user_type == 'data_clerk') {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_lfs WHERE id_user = $current_user_id");
+                                                        } else {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_lfs");
+                                                        }
+                                                        foreach ($training->results() as $training):
+                                                            ?>
                                                             <tr>
                                                                 <td><?php echo $x; ?></td>
                                                                 <td><?php echo strtoupper($training->training_date); ?></td>
@@ -429,10 +432,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
                                                                                         <option value="<?php echo strtoupper($training->id_area_coordinator); ?>"><?php echo strtoupper(getSpecificDetails('area_coordinator', 'ac_initials', 'id_area_coordinator=' . $training->id_area_coordinator)); ?></option>
-    <?php
-    $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
-    foreach ($query_ac->results() as $query_ac):
-        ?>
+                                                                                        <?php
+                                                                                        $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
+                                                                                        foreach ($query_ac->results() as $query_ac):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -443,10 +446,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                                                         <option value="<?php echo strtoupper($training->id_field_officer); ?>"><?php echo strtoupper(getSpecificDetails('field_officers', 'field_officer_code', 'id_field_officer=' . $training->id_field_officer)); ?></option>
-    <?php
-    $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
-    foreach ($fo_query->results() as $fo_query):
-        ?>
+                                                                                        <?php
+                                                                                        $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
+                                                                                        foreach ($fo_query->results() as $fo_query):
+                                                                                            ?>
                                                                                             <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -464,10 +467,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                                                         <option value="<?php echo strtoupper($training->id_training_lfs); ?>"><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $training->id_district)); ?></option>
-    <?php
-    $query_district = DB::getInstance()->query("SELECT * FROM district");
-    foreach ($query_district->results() as $query_district):
-        ?>
+                                                                                        <?php
+                                                                                        $query_district = DB::getInstance()->query("SELECT * FROM district");
+                                                                                        foreach ($query_district->results() as $query_district):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -478,10 +481,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                                                         <option value="<?php echo strtoupper($training->id_training_venue); ?>"><?php echo strtoupper(getSpecificDetails('training_venue', 'venue_name', 'id_training_venue=' . $training->id_training_venue)); ?></option>
-    <?php
-    $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
-    foreach ($training_venue_query->results() as $training_venue_query):
-        ?>
+                                                                                        <?php
+                                                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                                                        foreach ($training_venue_query->results() as $training_venue_query):
+                                                                                            ?>
                                                                                             <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -492,10 +495,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                                                         <option value="<?php echo strtoupper($training->id_training_lfs); ?>"><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $training->id_subcounty)); ?></option>
-    <?php
-    $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
-    foreach ($query_subcounty->results() as $query_subcounty):
-        ?>
+                                                                                        <?php
+                                                                                        $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
+                                                                                        foreach ($query_subcounty->results() as $query_subcounty):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_subcounty->id_subcounty; ?>"><?php echo strtoupper($query_subcounty->subcounty_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -506,10 +509,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                                                         <option value="<?php echo strtoupper($training->id_training_lfs); ?>"><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $training->id_parish)); ?></option>
-    <?php
-    $query_parish = DB::getInstance()->query("SELECT * FROM parish");
-    foreach ($query_parish->results() as $query_parish):
-        ?>
+                                                                                        <?php
+                                                                                        $query_parish = DB::getInstance()->query("SELECT * FROM parish");
+                                                                                        foreach ($query_parish->results() as $query_parish):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_parish->id_parish; ?>"><?php echo strtoupper($query_parish->parish_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -520,10 +523,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-10">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                                                         <option value="<?php echo strtoupper($training->id_training_lfs); ?>"><?php echo strtoupper(getSpecificDetails('modules', 'module_name', 'id_module=' . $training->id_module)); ?></option>
-    <?php
-    $query_module = DB::getInstance()->query("SELECT * FROM modules");
-    foreach ($query_module->results() as $query_module):
-        ?>
+                                                                                        <?php
+                                                                                        $query_module = DB::getInstance()->query("SELECT * FROM modules");
+                                                                                        foreach ($query_module->results() as $query_module):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_module->id_module; ?>"><?php echo strtoupper($query_module->module_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -542,11 +545,11 @@ foreach ($training->results() as $training):
                                                                                <div class="col-sm-10">
                                                                                  <select class="form-control select2" style="width: 100%;" name="id_production_area">
                                                                              <option>--Select--</option>
-    <?php
-    $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-    foreach ($query_pdn_area->results() as $pdn_area):
-        ?>
-                                                                                 <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
+                                                                            <?php
+                                                                            $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
+                                                                            foreach ($query_pdn_area->results() as $pdn_area):
+                                                                                ?>
+                                                                                         <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
                                                                             <?php endforeach; ?>
                                                                            </select>
                                                                                </div>
@@ -665,10 +668,10 @@ foreach ($training->results() as $training):
 
 
                                                         </tr>
-    <?php
-    $x++;
-endforeach;
-?>
+                                                        <?php
+                                                        $x++;
+                                                    endforeach;
+                                                    ?>
                                                     </tbody>
                                                     <tfoot>
                                                     </tfoot>
@@ -692,6 +695,6 @@ endforeach;
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-<?php include 'include/footer.php'; ?>
+            <?php include 'include/footer.php'; ?>
     </body>
 </html>

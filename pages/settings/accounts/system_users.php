@@ -26,7 +26,7 @@
                     $email = strtolower(Input::get('email'));
                     $username = strtolower(Input::get('username'));
                     $usertype = Input::get('usertype');
-                    $arrayNewUser = array("name" => $full_name, "contact" => $telephone, "email" => $email, "usertype" => $usertype, "username" => $username, "password" => sha1('@' . $username . '##'));
+                    $arrayNewUser = array("name" => $full_name, "contact" => $telephone, "email" => $email, "usertype" => $usertype, "username" => $username, "password" => sha1('@'.$username.'##'));
                     if (DB::getInstance()->insert('users', $arrayNewUser)) {
                         $notification = submissionReport('success', 'User ' . strtoupper($full_name) . ' registered successfully');
                     } else {

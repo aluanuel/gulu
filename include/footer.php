@@ -218,7 +218,9 @@
 <script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="assets/bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- Select2 -->
+<!-- <script src="assets/bower_components/bootstrap-select-1.13.9/dist/jquery3.2.1/jquery.min.js"></script> -->
+<script src="assets/bower_components/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js"></script>
 <!-- SlimScroll -->
 <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
@@ -249,7 +251,8 @@
             'autoWidth': false
         })
         //Initialize Select2 Elements
-        $('.select2').select2()
+        $('select').selectpicker();
+        // $('.select2').select2()
         //show and hide input for district
         $('#select_id_district').change(function () {
             if ($('#select_id_district').val() == 'new_district') {

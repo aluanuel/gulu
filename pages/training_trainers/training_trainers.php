@@ -140,7 +140,7 @@
                                                 <label for="inputName" class="col-sm-2 control-label">Area Coordinator</label>
 
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
+                                                    <select class="selectpicker form-contro" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_area_coordinator">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
@@ -179,7 +179,7 @@
                                             <div class="row form-group">
                                                 <label for="inputName" class="col-sm-2 control-label">District</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_district">
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_district">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_district = DB::getInstance()->query("SELECT * FROM district");
@@ -193,7 +193,7 @@
                                             <div class="row form-group">
                                                 <label for="inputName" class="col-sm-2 control-label">Training Venue</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_training_venue" >
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue" >
                                                         <option>--Select--</option>
                                                         <?php
                                                         $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
@@ -207,7 +207,7 @@
                                             <div class="row form-group">
                                                 <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_subcounty">
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_subcounty">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
@@ -221,7 +221,7 @@
                                             <div class="row form-group">
                                                 <label for="inputName" class="col-sm-2 control-label">Parish</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_parish">
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_parish">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_parisht = DB::getInstance()->query("SELECT * FROM parish");
@@ -235,7 +235,7 @@
                                             <div class="row form-group">
                                                 <label for="inputName" class="col-sm-2 control-label">Module</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_module">
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_module">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_module = DB::getInstance()->query("SELECT * FROM modules");

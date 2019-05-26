@@ -4,6 +4,7 @@
   <title>GADC</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -14,13 +15,13 @@
   <link rel="stylesheet" href="assets/bower_components/jvectormap/jquery-jvectormap.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="assets/bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap-select-1.13.9/dist/css/bootstrap-select.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

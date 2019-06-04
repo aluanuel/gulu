@@ -121,14 +121,14 @@
 
                                         <form class="form-horizontal" action="" method="post">
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Video Screening Date</label>
+                                                <label class="col-sm-2 control-label">Video Screening Date</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="date" class="form-control" id="inputName" name="screening_date" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Area Coordinator</label>
+                                                <label class="col-sm-2 control-label">Area Coordinator</label>
 
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
@@ -144,7 +144,7 @@
                                             </div>
 
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Training by</label>
+                                                <label class="col-sm-2 control-label">Training by</label>
 
                                                 <div class="col-sm-10">
                                                     
@@ -161,7 +161,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">field officer code</label>
+                                                <label class="col-sm-2 control-label">field officer code</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                         <option>--Select--</option>
@@ -175,14 +175,14 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Field officer name</label>
+                                                <label class="col-sm-2 control-label">Field officer name</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="fo_name" placeholder="Enter full name" autocomplete="off" required required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">lead farmer code</label>
+                                                <label class="col-sm-2 control-label">lead farmer code</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_lead_farmer">
                                                         <option>--Select--</option>
@@ -196,13 +196,13 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">lead farmer name</label>
+                                                <label class="col-sm-2 control-label">lead farmer name</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="person_to_pay" placeholder="Enter full name" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">District</label>
+                                                <label class="col-sm-2 control-label">District</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                         <option>--Select--</option>
@@ -217,7 +217,7 @@
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                <label class="col-sm-2 control-label">Subcounty</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                         <option>--Select--</option>
@@ -231,7 +231,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                <label class="col-sm-2 control-label">Parish</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                         <option>--Select--</option>
@@ -245,7 +245,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module</label>
+                                                <label class="col-sm-2 control-label">Module</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                         <option>--Select--</option>
@@ -259,7 +259,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module Repetition</label>
+                                                <label class="col-sm-2 control-label">Module Repetition</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off" required>
@@ -267,14 +267,14 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Male</label>
+                                                <label class="col-sm-2 control-label">Male</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="lf_name" placeholder="Enter full name " autocomplete="off" required>
                                                 </div>
                                             </div>
 
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Other Person Name</label>
+                                                <label class="col-sm-2 control-label">Other Person Name</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="other_person_name" placeholder="Enter full name" autocomplete="off" required>
@@ -282,14 +282,14 @@
                                             </div>
 
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Person to be Paid</label>
+                                                <label class="col-sm-2 control-label">Person to be Paid</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="person_to_pay" placeholder="Enter full name" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">District</label>
+                                                <label class="col-sm-2 control-label">District</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                         <option>--Select--</option>
@@ -303,7 +303,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Training Venue</label>
+                                                <label class="col-sm-2 control-label">Training Venue</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                         <option>--Select--</option>
@@ -317,7 +317,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                <label class="col-sm-2 control-label">Subcounty</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                         <option>--Select--</option>
@@ -331,7 +331,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                <label class="col-sm-2 control-label">Parish</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                         <option>--Select--</option>
@@ -345,7 +345,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module</label>
+                                                <label class="col-sm-2 control-label">Module</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                         <option>--Select--</option>
@@ -359,14 +359,14 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module Repetition</label>
+                                                <label class="col-sm-2 control-label">Module Repetition</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <!--<div class="row form-group">
-                                               <label for="inputName" class="col-sm-2 control-label">Production Area</label>
+                                               <label class="col-sm-2 control-label">Production Area</label>
                            
                                                <div class="col-sm-10">
                                                  <select class="form-control select2" style="width: 100%;" name="id_production_area">
@@ -382,7 +382,7 @@
                                              </div>-->
 
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Male</label>
+                                                <label class="col-sm-2 control-label">Male</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="male" placeholder="Enter Number of male" autocomplete="off" required>
@@ -390,60 +390,60 @@
                                             </div>
 
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Females</label>
+                                                <label class="col-sm-2 control-label">Females</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="female" placeholder="Enter Number of females" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Youths</label>
+                                                <label class="col-sm-2 control-label">Youths</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="youth" placeholder="Enter Number of male youths" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <!--<div class="row form-group">
-                                             <label for="inputName" class="col-sm-2 control-label">female youth ofs</label>
+                                             <label class="col-sm-2 control-label">female youth ofs</label>
                                              <div class="col-sm-10">
                                                <input type="text" class="form-control" id="inputName" name="female_youth_ofs" placeholder="Enter Number of female youth organic farmers" autocomplete="off" required>
                                              </div>
                                            </div>-->
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Total</label>
+                                                <label class="col-sm-2 control-label">Total</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="total_attendance" placeholder="Total attendance" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <!--<div class="row form-group">
-                                             <label for="inputName" class="col-sm-2 control-label">Total youth ofs</label>
+                                             <label class="col-sm-2 control-label">Total youth ofs</label>
                                              <div class="col-sm-10">
                                                <input type="text" class="form-control" id="inputName" name="total_youth_ofs" placeholder="total of youth organic farmers" autocomplete="off" required>
                                              </div>
                                            </div>-->
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Report Number</label>
+                                                <label class="col-sm-2 control-label">Report Number</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="report_number" placeholder="Enter Report Number" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Payment status</label>
+                                                <label class="col-sm-2 control-label">Payment status</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="payment_status" placeholder="payment status" autocomplete="off" required>
                                                 </div>
                                             </div>
                                             <!--<div class="row form-group">
-                                               <label for="inputName" class="col-sm-2 control-label">others</label>
+                                               <label class="col-sm-2 control-label">others</label>
                                                <div class="col-sm-10">
                                                  <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off" required>
                                                </div>
                                              </div>
                                             <div class="row form-group">
-                                               <label for="inputName" class="col-sm-2 control-label">reviewed_by</label>
+                                               <label class="col-sm-2 control-label">reviewed_by</label>
                                                <div class="col-sm-10">
                                                  <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off" required>
                                                </div>
@@ -564,14 +564,14 @@
 
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Video Screening Date</label>
+                                                                                <label class="col-sm-3 control-label">Video Screening Date</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="date" class="form-control" id="inputName" name="screening_date" autocomplete="off" required value="<?php echo strtoupper($training->screening_date); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Area Coordinator</label>
+                                                                                <label class="col-sm-3 control-label">Area Coordinator</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
@@ -587,14 +587,14 @@
                                                                             </div>
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Training by</label>
+                                                                                <label class="col-sm-3 control-label">Training by</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="training_by" placeholder="Enter who did the training e.g FO, AC,LF,OTHER" autocomplete="off" required value="<?php echo strtoupper($training->training_by); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">field officer code</label>
+                                                                                <label class="col-sm-3 control-label">field officer code</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                                                         <option value="<?php echo strtoupper($training->id_field_officer); ?>"><?php echo strtoupper(getSpecificDetails('field_officers', 'field_officer_code', 'id_field_officer=' . $training->id_field_officer)); ?></option>
@@ -608,14 +608,14 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Field officer name</label>
+                                                                                <label class="col-sm-3 control-label">Field officer name</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="fo_name" placeholder="Enter full name" autocomplete="off" required value="<?php echo strtoupper($training->fo_name); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">lead farmer code</label>
+                                                                                <label class="col-sm-3 control-label">lead farmer code</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_lead_farmer">
                                                                                         <option value="<?php echo strtoupper($training->id_lead_farmer); ?>"><?php echo strtoupper(getSpecificDetails('lead_farmers', 'lead_farmer_code', 'id_lead_farmer=' . $training->id_lead_farmer)); ?></option>
@@ -629,7 +629,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">lead farmer name</label>
+                                                                                <label class="col-sm-3 control-label">lead farmer name</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="lf_name" placeholder="Enter full name " autocomplete="off" required value="<?php echo strtoupper($training->lf_name); ?>">
@@ -637,7 +637,7 @@
                                                                             </div>
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Other Person Name</label>
+                                                                                <label class="col-sm-3 control-label">Other Person Name</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="other_person_name" placeholder="Enter full name" autocomplete="off" required value="<?php echo strtoupper($training->other_person_name); ?>">
@@ -645,14 +645,14 @@
                                                                             </div>
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Person to be Paid</label>
+                                                                                <label class="col-sm-3 control-label">Person to be Paid</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="person_to_pay" placeholder="Enter full name" autocomplete="off" required value="<?php echo strtoupper($training->person_to_pay); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Training Venue</label>
+                                                                                <label class="col-sm-3 control-label">Training Venue</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                                                         <option value="<?php echo strtoupper($training->id_training_venue); ?>"> <?php echo strtoupper(getSpecificDetails('training_venue', 'venue_name', 'id_training_venue=' . $training->id_training_venue)); ?></option>
@@ -667,7 +667,7 @@
                                                                             </div>
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Subcounty</label>
+                                                                                <label class="col-sm-3 control-label">Subcounty</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                                                         <option value="<?php echo strtoupper($training->id_subcounty); ?>"><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $training->id_subcounty)); ?></option>
@@ -681,7 +681,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Parish</label>
+                                                                                <label class="col-sm-3 control-label">Parish</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                                                         <option value="<?php echo strtoupper($training->id_parish); ?>"><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $training->id_parish)); ?></option>
@@ -695,7 +695,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Module</label>
+                                                                                <label class="col-sm-3 control-label">Module</label>
                                                                                 <div class="col-sm-9">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                                                         <option><?php echo strtoupper(getSpecificDetails('modules', 'id_module', 'id_module=' . $training->id_module)); ?></option>
@@ -709,14 +709,14 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Module Repetition</label>
+                                                                                <label class="col-sm-3 control-label">Module Repetition</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off" required value="<?php echo strtoupper($training->module_repetition); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <!--<div class="row form-group">
-                                                                               <label for="inputName" class="col-sm-3 control-label">Production Area</label>
+                                                                               <label class="col-sm-3 control-label">Production Area</label>
                                                            
                                                                                <div class="col-sm-9">
                                                                                  <select class="form-control select2" style="width: 100%;" name="id_production_area">
@@ -732,7 +732,7 @@
                                                                              </div>-->
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Male</label>
+                                                                                <label class="col-sm-3 control-label">Male</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="male" placeholder="Enter Number of male" autocomplete="off" required value="<?php echo strtoupper($training->male); ?>">
@@ -740,60 +740,60 @@
                                                                             </div>
 
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Females</label>
+                                                                                <label class="col-sm-3 control-label">Females</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="female" placeholder="Enter Number of females" autocomplete="off" required value="<?php echo strtoupper($training->female); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Youths</label>
+                                                                                <label class="col-sm-3 control-label">Youths</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="youth" placeholder="Enter Number of male youths" autocomplete="off" required value="<?php echo strtoupper($training->youth); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <!--<div class="row form-group">
-                                                                             <label for="inputName" class="col-sm-3 control-label">female youth ofs</label>
+                                                                             <label class="col-sm-3 control-label">female youth ofs</label>
                                                                              <div class="col-sm-9">
                                                                                <input type="text" class="form-control" id="inputName" name="female_youth_ofs" placeholder="Enter Number of female youth organic farmers" autocomplete="off" required>
                                                                              </div>
                                                                            </div>-->
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Total</label>
+                                                                                <label class="col-sm-3 control-label">Total</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="total_attendance" placeholder="Total attendance" autocomplete="off" required value="<?php echo strtoupper($training->total_attendance); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <!--<div class="row form-group">
-                                                                             <label for="inputName" class="col-sm-3 control-label">Total youth ofs</label>
+                                                                             <label class="col-sm-3 control-label">Total youth ofs</label>
                                                                              <div class="col-sm-9">
                                                                                <input type="text" class="form-control" id="inputName" name="total_youth_ofs" placeholder="total of youth organic farmers" autocomplete="off" required>
                                                                              </div>
                                                                            </div>-->
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Report Number</label>
+                                                                                <label class="col-sm-3 control-label">Report Number</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="report_number" placeholder="Enter Report Number" autocomplete="off" required value="<?php echo strtoupper($training->report_number); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row form-group">
-                                                                                <label for="inputName" class="col-sm-3 control-label">Payment Status</label>
+                                                                                <label class="col-sm-3 control-label">Payment Status</label>
 
                                                                                 <div class="col-sm-9">
                                                                                     <input type="text" class="form-control" id="inputName" name="payment_status" placeholder="payment status" autocomplete="off" required value="<?php echo strtoupper($training->payment_status); ?>">
                                                                                 </div>
                                                                             </div>
                                                                             <!--<div class="row form-group">
-                                                                               <label for="inputName" class="col-sm-3 control-label">others</label>
+                                                                               <label class="col-sm-3 control-label">others</label>
                                                                                <div class="col-sm-9">
                                                                                  <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off" required>
                                                                                </div>
                                                                              </div>
                                                                             <div class="row form-group">
-                                                                               <label for="inputName" class="col-sm-3 control-label">reviewed_by</label>
+                                                                               <label class="col-sm-3 control-label">reviewed_by</label>
                                                                                <div class="col-sm-9">
                                                                                  <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off" required>
                                                                                </div>

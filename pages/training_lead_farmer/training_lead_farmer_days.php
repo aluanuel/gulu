@@ -71,14 +71,14 @@
                                     <div class="active tab-pane" id="new_training" style="height: auto;">
                                         <form class="form-horizontal" action="" method="post">
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Training Date</label>
+                                                <label  class="col-sm-2 control-label">Training Date</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="date" class="form-control" id="inputName" name="training_date" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Area Coordinator</label>
+                                                <label  class="col-sm-2 control-label">Area Coordinator</label>
 
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
@@ -93,7 +93,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">field officer code</label>
+                                                <label  class="col-sm-2 control-label">field officer code</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                         <option>--Select--</option>
@@ -107,14 +107,14 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Field officer name</label>
+                                                <label  class="col-sm-2 control-label">Field officer name</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter full name" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">District</label>
+                                                <label  class="col-sm-2 control-label">District</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                         <option>--Select--</option>
@@ -128,7 +128,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Training Venue</label>
+                                                <label  class="col-sm-2 control-label">Training Venue</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                         <option>--Select--</option>
@@ -142,7 +142,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Subcounty</label>
+                                                <label  class="col-sm-2 control-label">Subcounty</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                         <option>--Select--</option>
@@ -156,7 +156,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Parish</label>
+                                                <label  class="col-sm-2 control-label">Parish</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                         <option>--Select--</option>
@@ -170,7 +170,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module</label>
+                                                <label  class="col-sm-2 control-label">Module</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                         <option>--Select--</option>
@@ -184,14 +184,14 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Module Repetition</label>
+                                                <label  class="col-sm-2 control-label">Module Repetition</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off">
                                                 </div>
                                             </div>
                                             <!-- <div class="form-group">
-                                               <label for="inputName" class="col-sm-2 control-label">Production Area</label>
+                                               <label  class="col-sm-2 control-label">Production Area</label>
                            
                                                <div class="col-sm-10">
                                                  <select class="form-control select2" style="width: 100%;" name="id_production_area">
@@ -207,7 +207,7 @@
                                              </div>-->
 
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Male Lfs</label>
+                                                <label  class="col-sm-2 control-label">Male Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="male_lfs" placeholder="Enter Number of male lead farmers" autocomplete="off">
@@ -215,63 +215,63 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Female Lfs</label>
+                                                <label  class="col-sm-2 control-label">Female Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="female_lfs" placeholder="Enter Number of female lead farmers" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Male youth Lfs</label>
+                                                <label  class="col-sm-2 control-label">Male youth Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="male_youth_lfs" placeholder="Enter Number of male  youth lead farmers" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">female youth Lfs</label>
+                                                <label  class="col-sm-2 control-label">female youth Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="female_youth_lfs" placeholder="Enter Number of female youth lead farmers" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Total Lfs</label>
+                                                <label  class="col-sm-2 control-label">Total Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="total_lfs" placeholder="Total lfs" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">Total youth Lfs</label>
+                                                <label  class="col-sm-2 control-label">Total youth Lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="total_youth_lfs" placeholder="total youth lead farmeers" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">lfs</label>
+                                                <label  class="col-sm-2 control-label">lfs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">ofs</label>
+                                                <label  class="col-sm-2 control-label">ofs</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">others</label>
+                                                <label  class="col-sm-2 control-label">others</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName" class="col-sm-2 control-label">reviewed_by</label>
+                                                <label  class="col-sm-2 control-label">reviewed_by</label>
 
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">

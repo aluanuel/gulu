@@ -45,7 +45,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="index.php?page=training_lead_farmer"><i class="fa fa-circle-o"></i>Training of Lead Farmers</a></li>
-                    <li><a href="index.php?page=training_lead_farmer"><i class="fa fa-circle-o"></i>Field Day</a></li>
+                    <li><a href="index.php?page=training_lead_farmer_days"><i class="fa fa-circle-o"></i>Field Day</a></li>
                 </ul>
             </li>
             <li class="treeview">

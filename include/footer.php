@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2019  Theme by <a href="https://adminlte.io">Almsaeed Studio</a> Designed by <a href="thinkinnovation.tech">Think Innovation, Arua.</a></strong> All rights
+    <strong>Copyright &copy; 2019  Themed by <a href="https://adminlte.io">Almsaeed Studio</a>, designed and maintained by <a href="thinkinnovation.tech">Think Innovations Limited.</a></strong> All rights
     reserved.
 </footer>
 
@@ -218,7 +218,9 @@
 <script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="assets/bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- Select2 -->
+<!-- <script src="assets/bower_components/bootstrap-select-1.13.9/dist/jquery3.2.1/jquery.min.js"></script> -->
+<script src="assets/bower_components/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js"></script>
 <!-- SlimScroll -->
 <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
@@ -249,7 +251,8 @@
             'autoWidth': false
         })
         //Initialize Select2 Elements
-        $('.select2').select2()
+        $('select').selectpicker();
+        // $('.select2').select2()
         //show and hide input for district
         $('#select_id_district').change(function () {
             if ($('#select_id_district').val() == 'new_district') {
@@ -295,11 +298,6 @@
             ac_initials = text_value.split(" ~ ",2);
 //            console.log(ac_initials[1]);
         })
-//        $('#selected_id_field_officer_training').change(function (){
-//            var text_value = $(this).children("option:selected").text();
-//            var fo_name = "<?php // getSpecificDetails('field_officer', 'fo_name','id_filed_officer'.'?>"+text_value+"<?php')?>";
-//            $('#field_officer_name').val('fo_name');
-//        })
         $('#id_training_fo_complete').change(function (){
           $('#checkbox_select_th').hide();
           $('#button_select_th').show();
@@ -336,6 +334,57 @@
             var total = male + female;
             $('#id_total_youth_fos').val(total) ; 
         })
+        $('#id_female_youth_fos').blur(function(){
+          var female_lf = $('#id_female_lfs').val();
+          var female_ylf = $('#id_female_youth_lfs').val();
+          var female_fo = $('#id_female_fos').val();
+          var female_yfo = $('#id_female_youth_fos').val();
+          if(female_lf !=''){
+          female_lf = parseInt(female_lf);
+        }else{
+          female_lf = 0;
+        }
+        if(female_ylf !=''){
+          female_ylf = parseInt(female_ylf);
+        }else{
+          female_ylf = 0;
+        }
+        if(female_fo !=''){
+          female_fo = parseInt(female_fo);
+        }else{
+          female_fo = 0;
+        }
+        if(female_yfo != ''){
+          female_yfo = parseInt(female_yfo);
+        }else{
+          female_yfo = 0;
+        }
+          var total = female_lf + female_ylf + female_fo + female_yfo;
+          $('#id_total_females').val(total);
+        })
+        $('#id_female_youth_fos').blur(function(){
+          var youth_lf = $('#id_total_youth_lfs');
+          var youth_fo = $('#id_female_youth_fos');
+          if(youth_lf!=''){
+            youth_lf = parseInt(youth_lf);
+          }else{
+            youth_lf = 0;
+          }
+          if(youth_fo !=''){
+            youth_fo = parseInt(youth_fo);
+          }
+          else{
+            youth_fo = 0;
+          }
+          var total = youth_lf + youth_fo;
+          $('#id_total_youth').val(total);
+        })
+        // $('#id_training_venue').change(function(){
+        //   var choice = $('.selected_training_venue').attr("id");
+        //   $('#from_selected_training_venue').text("");
+        //   console.log(choice);
+        //   $('#from_selected_training_venue').show();
+        // })
     })
 
 </script>

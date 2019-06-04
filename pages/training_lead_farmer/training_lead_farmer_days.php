@@ -12,11 +12,11 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        training of lead farmers Field Days
+                        Training of Lead Farmers Field Days
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">training of lead farmers Field Days</li>
+                        <li class="active">Training of Lead Farmers Field Days</li>
                     </ol>
                 </section>
                 <?php
@@ -70,18 +70,14 @@
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="new_training" style="height: auto;">
                                         <form class="form-horizontal" action="" method="post">
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Training Date</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="date" class="form-control" id="inputName" name="training_date" autocomplete="off">
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Training Date</label>
+                                                    <input type="date" class="form-control btn-default" id="inputName" name="training_date" autocomplete="off">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Area Coordinator</label>
-
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
+                                                <div class="col-xs-6">
+                                                    <label  class="control-label">Area Coordinator</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_area_coordinator">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
@@ -91,32 +87,36 @@
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">field officer code</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_field_officer">
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Field Officer code</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_field_officer">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
                                                         foreach ($fo_query->results() as $fo_query):
                                                             ?>
-                                                            <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer); ?></option>
+                                                            <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo $fo_query->field_officer_code.' ~ '. strtoupper($fo_query->fo_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Field officer name</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter full name" autocomplete="off">
-                                                </div>
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Training Venue</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue">
+                                                        <option>--Select--</option>
+                                                        <?php
+                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                        foreach ($training_venue_query->results() as $training_venue_query):
+                                                            ?>
+                                                            <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">District</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_district">
+                                            <div class="col-xs-3">
+                                                <label  class="control-label">District</label>
+                                                
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_district">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_district = DB::getInstance()->query("SELECT * FROM district");
@@ -126,25 +126,9 @@
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Training Venue</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_training_venue">
-                                                        <option>--Select--</option>
-                                                        <?php
-                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
-                                                        foreach ($training_venue_query->results() as $training_venue_query):
-                                                            ?>
-                                                            <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Subcounty</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_subcounty">
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Subcounty</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_subcounty">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
@@ -153,12 +137,10 @@
                                                             <option value="<?php echo $query_subcounty->id_subcounty; ?>"><?php echo strtoupper($query_subcounty->subcounty_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
-                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Parish</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_parish">
+                                            <div class="col-xs-3">
+                                                <label  class="control-label">Parish</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_parish">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_parish = DB::getInstance()->query("SELECT * FROM parish");
@@ -167,12 +149,12 @@
                                                             <option value="<?php echo $query_parish->id_parish; ?>"><?php echo strtoupper($query_parish->parish_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
-                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Module</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_module">
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Module</label> 
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_module" required>
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_module = DB::getInstance()->query("SELECT * FROM modules");
@@ -182,103 +164,67 @@
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
+                                                <div class="col-xs-3">
+                                                <label  class="control-label">Module Repetition</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="module_repetition" placeholder="Times module is repeated e.g 1,2" autocomplete="off">
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Module Repetition</label>
+                                            </div>
+                                            
+                                            
 
-                                                <div class="col-sm-10">
-                                                    <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off">
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Male Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_male_lfs" name="male_lfs" placeholder="Enter Number of male lead farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <label class="control-label">Female Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_female_lfs" name="female_lfs" placeholder="Enter Number of female lead farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Total of Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_total_lfs" name="total_lfs" placeholder="Total lfs" autocomplete="off">
                                                 </div>
                                             </div>
-                                            <!-- <div class="form-group">
-                                               <label  class="col-sm-2 control-label">Production Area</label>
-                           
-                                               <div class="col-sm-10">
-                                                 <select class="form-control select2" style="width: 100%;" name="id_production_area">
-                                             <option>--Select--</option>
-                                            <?php
-                                            $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-                                            foreach ($query_pdn_area->results() as $pdn_area):
-                                                ?>
-                                                 <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
-                                            <?php endforeach; ?>
-                                           </select>
-                                               </div>
-                                             </div>-->
-
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Male Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="male_lfs" placeholder="Enter Number of male lead farmers" autocomplete="off">
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Male youth Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_male_youth_lfs" name="male_youth_lfs" placeholder="Enter Number of male  youth lead farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Female youth Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_female_youth_lfs" name="female_youth_lfs" placeholder="Enter Number of female youth lead farmers" autocomplete="off" required>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Total  of youth Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="id_total_youth_lfs" name="total_youth_lfs" placeholder="total youth lead farmeers" autocomplete="off">
                                                 </div>
                                             </div>
+                                            <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off" required>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off" >
 
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Female Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="female_lfs" placeholder="Enter Number of female lead farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                <label class=" control-label">Others</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Male youth Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="male_youth_lfs" placeholder="Enter Number of male  youth lead farmers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">female youth Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="female_youth_lfs" placeholder="Enter Number of female youth lead farmers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Total Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="total_lfs" placeholder="Total lfs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">Total youth Lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="total_youth_lfs" placeholder="total youth lead farmeers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">others</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="col-sm-2 control-label">reviewed_by</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col-xs-9">
+                                                <label class=" control-label">Reviewed By</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="row form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <button type="submit" class="btn btn-primary" name="save_field_officer" value="save_field_officer">Save</button>
                                                 </div>
@@ -289,7 +235,7 @@
                                     <div class="tab-pane" id="view_training" style="height: auto;">
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Data Table With Full Features</h3>
+                                                <h3 class="box-title">Showing Field Days conducted</h3>
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body" overflow-x="true" style="overflow-x:scroll;">

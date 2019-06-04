@@ -308,15 +308,15 @@
             male=parseInt(male);
             female=parseInt(female);
             var total = male + female;
-            $('#id_total_lfs').val(total) ; 
+            $('#id_total_lfs').val(parseInt(total)) ; 
         })
         $('#id_female_youth_lfs').blur(function (){
             var male = $('#id_male_youth_lfs').val();
             var female = $('#id_female_youth_lfs').val();
             male=parseInt(male);
             female=parseInt(female);
-            var total = male + female;
-            $('#id_total_youth_lfs').val(total) ; 
+            var total_youth = male + female;
+            $('#id_total_youth_lfs').val(parseInt(total_youth)) ; 
         })
         $('#id_female_fos').blur(function (){
             var male = $('#id_male_fos').val();
@@ -324,7 +324,7 @@
             male=parseInt(male);
             female=parseInt(female);
             var total = male + female;
-            $('#id_total_fos').val(total) ; 
+            $('#id_total_fos').val(parseInt(total)) ; 
         })
         $('#id_female_youth_fos').blur(function (){
             var male = $('#id_male_youth_fos').val();
@@ -332,7 +332,7 @@
             male=parseInt(male);
             female=parseInt(female);
             var total = male + female;
-            $('#id_total_youth_fos').val(total) ; 
+            $('#id_total_youth_fos').val(parseInt(total)) ; 
         })
         $('#id_female_youth_fos').blur(function(){
           var female_lf = $('#id_female_lfs').val();
@@ -360,11 +360,11 @@
           female_yfo = 0;
         }
           var total = female_lf + female_ylf + female_fo + female_yfo;
-          $('#id_total_females').val(total);
+          $('#id_total_females').val(parseInt(total));
         })
         $('#id_female_youth_fos').blur(function(){
-          var youth_lf = $('#id_total_youth_lfs');
-          var youth_fo = $('#id_female_youth_fos');
+          var youth_lf = $('#id_total_youth_lfs').val();
+          var youth_fo = $('#id_total_youth_fos').val();
           if(youth_lf!=''){
             youth_lf = parseInt(youth_lf);
           }else{
@@ -377,7 +377,7 @@
             youth_fo = 0;
           }
           var total = youth_lf + youth_fo;
-          $('#id_total_youth').val(total);
+          $('#id_total_youth').val(parseInt(total));
         })
         // $('#id_training_venue').change(function(){
         //   var choice = $('.selected_training_venue').attr("id");

@@ -109,12 +109,12 @@
                                         <form class="form-horizontal" action="" method="post">
                                             <div class="row form-group">
                                                 <div class="col-xs-3">
-                                                <label  class="control-label">Enrolment Date</label>
+                                                <label  class="control-label">Training Date</label>
                                                     <input type="date" class="form-control btn-default" id="inputName" name="training_date" autocomplete="off">
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <label  class="control-label">Area Coordinator</label>
-                                                    <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_area_coordinator">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
@@ -126,7 +126,7 @@
                                                 </div>
                                                 <div class="col-xs-3">
                                                 <label  class="control-label">Field Officer code</label>
-                                                    <select class="form-control select2" style="width: 100%;" name="id_field_officer">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_field_officer">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
@@ -140,7 +140,7 @@
                                             <div class="row form-group">
                                                 <div class="col-xs-3">
                                                 <label  class="control-label">Training Venue</label>
-                                                    <select class="form-control select2" style="width: 100%;" name="id_training_venue">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
@@ -153,7 +153,7 @@
                                             <div class="col-xs-3">
                                                 <label  class="control-label">District</label>
                                                 
-                                                    <select class="form-control select2" style="width: 100%;" name="id_district">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_district">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_district = DB::getInstance()->query("SELECT * FROM district");
@@ -165,7 +165,7 @@
                                                 </div>
                                                 <div class="col-xs-3">
                                                 <label  class="control-label">Subcounty</label>
-                                                    <select class="form-control select2" style="width: 100%;" name="id_subcounty">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_subcounty">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
@@ -177,7 +177,7 @@
                                             </div>
                                             <div class="col-xs-3">
                                                 <label  class="control-label">Parish</label>
-                                                    <select class="form-control select2" style="width: 100%;" name="id_parish">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_parish">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_parish = DB::getInstance()->query("SELECT * FROM parish");
@@ -191,7 +191,7 @@
                                             <div class="row form-group">
                                                 <div class="col-xs-3">
                                                 <label  class="control-label">Module</label> 
-                                                    <select class="form-control select2" style="width: 100%;" name="id_module">
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_module" required>
                                                         <option>--Select--</option>
                                                         <?php
                                                         $query_module = DB::getInstance()->query("SELECT * FROM modules");
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <div class="col-xs-3">
                                                 <label class="control-label">Total of Lfs</label>
-                                                    <input type="text" class="form-control" id="id_total_lfs" name="total_lfs" placeholder="Total lfs" autocomplete="off" disabled>
+                                                    <input type="text" class="form-control btn-default" id="id_total_lfs" name="total_lfs" placeholder="Total lfs" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -234,7 +234,7 @@
                                                 </div>
                                                 <div class="col-xs-3">
                                                 <label class="control-label">Total  of youth Lfs</label>
-                                                    <input type="text" class="form-control" id="id_total_youth_lfs" name="total_youth_lfs" placeholder="total youth lead farmeers" autocomplete="off" disabled>
+                                                    <input type="text" class="form-control btn-default" id="id_total_youth_lfs" name="total_youth_lfs" placeholder="total youth lead farmeers" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -272,7 +272,7 @@
                                     <div class="tab-pane" id="view_training" style="height: auto;">
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Data Table With Full Features</h3>
+                                                <h3 class="box-title">Showing Trainings conducted</h3>
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body" overflow-x="true" style="overflow-x:scroll;">
@@ -300,7 +300,7 @@
                                                             <th>ofs</th>
                                                             <th>others</th>
                                                             <th>reviewed_by</th>
-                                                            <th>actions</th>
+                                                            <th style="width: 160px;">actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -338,9 +338,9 @@
                                                                 <td><?php echo strtoupper($training->others); ?></td>
                                                                 <td><?php echo strtoupper($training->reviewed_by); ?></td>
                                                                 <td>                     <!-- Button trigger modal -->
-                                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo strtoupper($training->id_training_lfs); ?>">
+                                                                    <button type="button" class="btn btn-primary btn-flat pull-left btn-xs" data-toggle="modal" data-target="#exampleModal<?php echo strtoupper($training->id_training_lfs); ?>">
                                                                         Edit
-                                                                    </button><button id="restricted_to_admin" type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#delete_training<?php echo $training->id_training_lfs; ?>">
+                                                                    </button><button id="restricted_to_admin" type="button" class="btn btn-danger btn-flat pull-right btn-xs" data-toggle="modal" data-target="#delete_training<?php echo $training->id_training_lfs; ?>">
                                                                         Delete
                                                                     </button></td>
 

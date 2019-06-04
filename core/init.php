@@ -21,7 +21,7 @@ $GLOBALS['config'] = array(
          // 'host' => '127.0.0.1',
          // 'username' => 'josep_user',
          // 'password' => 'a2cuggWE',
-         // 'db' => 'josephezati_langas'
+         // 'db' => 'josephezati_gadc_db'
      ),
      
     'remember' => array(

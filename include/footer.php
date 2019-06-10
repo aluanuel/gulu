@@ -379,12 +379,16 @@
           var total = youth_lf + youth_fo;
           $('#id_total_youth').val(parseInt(total));
         })
-        // $('#id_training_venue').change(function(){
-        //   var choice = $('.selected_training_venue').attr("id");
-        //   $('#from_selected_training_venue').text("");
-        //   console.log(choice);
-        //   $('#from_selected_training_venue').show();
-        // })
+        $('#selected_project').change(function(){
+          <?php
+            if(Input::exists()){
+              $id_project = Input::get('id_project');
+              $arraySetLogin = array("id_user"=>$current_user_id,"id_project"=>$id_project);
+              DB::getInstance()->insert('user_logins',$arraySetLogin);
+            }
+          ?>
+          $('#sidebar_menu').show();
+        })
     })
 
 </script>

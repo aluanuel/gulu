@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="assets/bower_components/bootstrap-select-1.13.9/dist/css/bootstrap-select.css">
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="assets/uploads/logo/logo.jpg"/>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

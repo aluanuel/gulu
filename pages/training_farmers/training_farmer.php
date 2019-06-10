@@ -12,11 +12,11 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        training of farmer
+                        Training of Farmers
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">training of farmers</li>
+                        <li><a href="index.php?page=dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Training of Farmers</li>
                     </ol>
                 </section>
                 <?php
@@ -51,7 +51,7 @@
         id_parish = '$id_parish' && id_module = '$id_module'  && module_repetition = '$module_repetition' && male_ofs = '$male_ofs' && female_ofs = '$female_ofs' && male_youth_ofs = '$male_youth_ofs' && female_youth_ofs = '$female_youth_ofs' && total_ofs = '$total_ofs' && total_youth_ofs = '$total_youth_ofs' && lfs = '$lfs' && ofs = '$ofs' && others = '$others' && reviewed_by = '$reviewed_by'")) {
                         $notification = submissionReport('warning', 'Similar record exists iin the databse');
                     } else {
-                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_lead_farmer" => $id_lead_farmer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "fo_name" => $fo_name, "lf_name" => $lf_name, "male_ofs" => $male_ofs, "female_ofs" => $female_ofs, "male_youth_ofs" => $male_youth_ofs, "female_youth_ofs" => $female_youth_ofs, "total_ofs" => $total_ofs, "total_youth_ofs" => $total_youth_ofs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by,"id_user"=>$current_user_id);
+                        $array_training_lfs = array("training_date" => $enrolment_date, "id_area_coordinator" => $id_area_coordinator, "id_district" => $id_district, "id_parish" => $id_parish, "id_subcounty" => $id_subcounty, "id_module" => $id_module, "id_field_officer" => $id_field_officer, "id_lead_farmer" => $id_lead_farmer, "id_training_venue" => $id_training_venue, "module_repetition" => $module_repetition, "fo_name" => $fo_name, "lf_name" => $lf_name, "male_ofs" => $male_ofs, "female_ofs" => $female_ofs, "male_youth_ofs" => $male_youth_ofs, "female_youth_ofs" => $female_youth_ofs, "total_ofs" => $total_ofs, "total_youth_ofs" => $total_youth_ofs, "lfs" => $lfs, "ofs" => $ofs, "others" => $others, "reviewed_by" => $reviewed_by, "id_user" => $current_user_id);
                         if (DB::getInstance()->insert('training_farmers', $array_training_lfs)) {
                             $notification = submissionReport('success', 'Data saved successfully');
                         } else {
@@ -103,246 +103,193 @@
 
                 <!-- Main content -->
                 <section class="content">
-<?php echo $notification; ?>
+                    <?php echo $notification; ?>
                     <div class="row">
 
                         <!-- /.col -->
                         <div class="col-md-12">
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#new_training" data-toggle="tab">Add New training </a></li>
-                                    <li><a href="#view_training" data-toggle="tab">View trainings</a></li>
+                                    <li class="active"><a href="#new_training" data-toggle="tab">Add New Training </a></li>
+                                    <li><a href="#view_training" data-toggle="tab">View Trainings</a></li>
 
                                 </ul>
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="new_training" style="height: auto;">
                                         <form class="form-horizontal" action="" method="post">
                                             <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Enrolment Date</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="date" class="form-control" id="inputName" name="training_date" autocomplete="off">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Enrolment Date</label>
+                                                    <input type="date" class="form-control btn-default" id="inputName" name="training_date" autocomplete="off">
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Area Coordinator</label>
-
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
+                                                <div class="col-xs-6 col-sm-6">
+                                                    <label class=control-label">Area Coordinator</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_area_coordinator">
                                                         <option>--Select--</option>
-<?php
-$query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
-foreach ($query_ac->results() as $query_ac):
-    ?>
+                                                        <?php
+                                                        $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
+                                                        foreach ($query_ac->results() as $query_ac):
+                                                            ?>
                                                             <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">field officer code</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_field_officer">
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Field Officer code</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_field_officer">
                                                         <option>--Select--</option>
-<?php
-$fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
-foreach ($fo_query->results() as $fo_query):
-    ?>
-                                                            <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer); ?></option>
+                                                        <?php
+                                                        $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
+                                                        foreach ($fo_query->results() as $fo_query):
+                                                            ?>
+                                                            <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->field_officer_code) . ' ~ ' . strtoupper($fo_query->fo_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Field officer name</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="fo_name" placeholder="Enter full name" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">lead farmer code</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_lead_farmer">
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Lead Farmer code</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_lead_farmer">
                                                         <option>--Select--</option>
-<?php
-$lf_query = DB::getInstance()->query("SELECT * FROM lead_farmers");
-foreach ($lf_query->results() as $lf_query):
-    ?>
-                                                            <option value="<?php echo $lf_query->id_lead_farmer; ?>"><?php echo strtoupper($lf_query->id_lead_farmer); ?></option>
+                                                        <?php
+                                                        $lf_query = DB::getInstance()->query("SELECT * FROM lead_farmers");
+                                                        foreach ($lf_query->results() as $lf_query):
+                                                            ?>
+                                                            <option value="<?php echo $lf_query->id_lead_farmer; ?>"><?php echo strtoupper($lf_query->lead_farmer_code); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">lead farmer name</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="lf_name" placeholder="Enter full name " autocomplete="off">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Lead Farmer Name</label>
+                                                    <div class="">
+                                                        <input type="text" class="form-control btn-default" id="inputName" name="lf_name" placeholder="Enter lead farmer name" autocomplete="off">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-2 control-label">District</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_district">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Training Venue</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue">
                                                         <option>--Select--</option>
-<?php
-$query_district = DB::getInstance()->query("SELECT * FROM district");
-foreach ($query_district->results() as $query_district):
-    ?>
-                                                            <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Training Venue</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_training_venue">
-                                                        <option>--Select--</option>
-<?php
-$training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
-foreach ($training_venue_query->results() as $training_venue_query):
-    ?>
+                                                        <?php
+                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                        foreach ($training_venue_query->results() as $training_venue_query):
+                                                            ?>
                                                             <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Subcounty</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_subcounty">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">District</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_district">
                                                         <option>--Select--</option>
-<?php
-$query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
-foreach ($query_subcounty->results() as $query_subcounty):
-    ?>
+                                                        <?php
+                                                        $query_district = DB::getInstance()->query("SELECT * FROM district");
+                                                        foreach ($query_district->results() as $query_district):
+                                                            ?>
+                                                            <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Subcounty</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_subcounty">
+                                                        <option>--Select--</option>
+                                                        <?php
+                                                        $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
+                                                        foreach ($query_subcounty->results() as $query_subcounty):
+                                                            ?>
                                                             <option value="<?php echo $query_subcounty->id_subcounty; ?>"><?php echo strtoupper($query_subcounty->subcounty_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Parish</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_parish">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Parish</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_parish">
                                                         <option>--Select--</option>
-<?php
-$query_parisht = DB::getInstance()->query("SELECT * FROM parish");
-foreach ($query_parisht->results() as $query_parisht):
-    ?>
+                                                        <?php
+                                                        $query_parisht = DB::getInstance()->query("SELECT * FROM parish");
+                                                        foreach ($query_parisht->results() as $query_parisht):
+                                                            ?>
                                                             <option value="<?php echo $query_parisht->id_parish; ?>"><?php echo strtoupper($query_parisht->parish_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Module</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%;" name="id_module">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Module</label>
+                                                    <select class="selectpicker form-control select2" style="width: 100%;" id="basic2" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_module">
                                                         <option>--Select--</option>
-<?php
-$query_module = DB::getInstance()->query("SELECT * FROM modules");
-foreach ($query_module->results() as $query_module):
-    ?>
+                                                        <?php
+                                                        $query_module = DB::getInstance()->query("SELECT * FROM modules");
+                                                        foreach ($query_module->results() as $query_module):
+                                                            ?>
                                                             <option value="<?php echo $query_module->id_module; ?>"><?php echo strtoupper($query_module->module_name); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Module Repetition</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <!-- <div class="row form-group">
-                                               <label class="col-sm-2 control-label">Production Area</label>
-                           
-                                               <div class="col-sm-10">
-                                                 <select class="form-control select2" style="width: 100%;" name="id_production_area">
-                                             <option>--Select--</option>
-<?php
-$query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-foreach ($query_pdn_area->results() as $pdn_area):
-    ?>
-                                                     <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
-                                            <?php endforeach; ?>
-                                           </select>
-                                               </div>
-                                             </div>-->
-
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Male ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="male_ofs" placeholder="Enter Number of male organic farmers" autocomplete="off">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Module Repetition</label>
+                                                    <div class="">
+                                                        <input type="text" class="form-control btn-default" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 0,1,2" autocomplete="off">
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Female ofs</label>
 
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="female_ofs" placeholder="Enter Number of female organic farmers" autocomplete="off">
+                                            <div class="row form-group">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Male Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="male_ofs" placeholder="Enter Number of male organic farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Female Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="female_ofs" placeholder="Enter Number of female organic farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Total Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="total_ofs" placeholder="Total of ofs" autocomplete="off">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row form-group">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Male Youth Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="male_youth_ofs" placeholder="Enter Number of male youth organic farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Female Youth Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="female_youth_ofs" placeholder="Enter Number of female youth organic farmers" autocomplete="off">
+                                                </div>
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Total Youth Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="total_youth_ofs" placeholder="total of youth organic farmers" autocomplete="off">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row form-group">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Lfs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Ofs</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3">
+                                                    <label class="control-label">Others</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Male youth ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="male_youth_ofs" placeholder="Enter Number of male youth organic farmers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">female youth ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="female_youth_ofs" placeholder="Enter Number of female youth organic farmers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Total ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="total_ofs" placeholder="Total of ofs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">Total youth ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="total_youth_ofs" placeholder="total of youth organic farmers" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">lfs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">ofs</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">others</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="others" placeholder="Enter attendabce list others" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-2 control-label">reviewed_by</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <label class="control-label">Reviewed by</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
                                                 </div>
                                             </div>
 
@@ -357,7 +304,7 @@ foreach ($query_pdn_area->results() as $pdn_area):
                                     <div class="tab-pane" id="view_training" style="height: auto;">
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Training of Farmers inserted</h3>
+                                                <h3 class="box-title">Showing Trainings conducted</h3>
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body" overflow-x="true" style="overflow-x:scroll;">
@@ -391,16 +338,15 @@ foreach ($query_pdn_area->results() as $pdn_area):
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-<?php
-$x = 1;
-if($current_user_type=='data_clerk'){
-$training = DB::getInstance()->query("SELECT * FROM training_farmers WHERE id_user=$current_user_id");
-}
-else{
-$training = DB::getInstance()->query("SELECT * FROM training_farmers");
-}
-foreach ($training->results() as $training):
-    ?>
+                                                        <?php
+                                                        $x = 1;
+                                                        if ($current_user_type == 'data_clerk') {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_farmers WHERE id_user=$current_user_id");
+                                                        } else {
+                                                            $training = DB::getInstance()->query("SELECT * FROM training_farmers");
+                                                        }
+                                                        foreach ($training->results() as $training):
+                                                            ?>
                                                             <tr>
                                                                 <td><?php echo $x; ?></td>
                                                                 <td><?php echo strtoupper($training->training_date); ?></td>
@@ -451,41 +397,37 @@ foreach ($training->results() as $training):
                                                                         <form  action="" method="post">
                                                                             <input type="hidden" class="form-control" id="inputName" name="id_training_farmers" autocomplete="off" value="<?php echo $training->id_training_farmers; ?>">
                                                                             <div class="row form-group">
-                                                                                <label class="col-sm-4 control-label">Training Date</label>
-
-                                                                                <div class="col-sm-7">
+                                                                                <div class="col-sm-3 col-xs-6">
+                                                                                    <label class="control-label">Training Date</label>
                                                                                     <input type="date" class="form-control" id="inputName" name="training_date" autocomplete="off" value="<?php echo strtoupper($training->training_date); ?>">
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="row form-group">
-                                                                                <label class="col-sm-4 control-label">Area Coordinator</label>
-
-                                                                                <div class="col-sm-7">
+                                                                                <div class="col-sm-6 col-xs-6">
+                                                                                    <label class="control-label">Area Coordinator</label>
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_area_coordinator">
                                                                                         <option value="<?php echo $training->id_area_coordinator; ?>"><?php echo strtoupper(getSpecificDetails('area_coordinator', 'ac_initials', 'id_area_coordinator=' . $training->id_area_coordinator)); ?></option>
-    <?php
-    $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
-    foreach ($query_ac->results() as $query_ac):
-        ?>
+                                                                                        <?php
+                                                                                        $query_ac = DB::getInstance()->query("SELECT * FROM area_coordinator");
+                                                                                        foreach ($query_ac->results() as $query_ac):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_ac->id_area_coordinator; ?>"><?php echo strtoupper($query_ac->ac_name . ' ~ ' . $query_ac->ac_initials); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="row form-group">
-                                                                                <label class="col-sm-4 control-label">field officer code</label>
-                                                                                <div class="col-sm-7">
+                                                                                <div class="col-xs-6 col-sm-3">
+                                                                                    <label class="control-label">Field Officer code</label>
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_field_officer">
                                                                                         <option value="<?php echo $training->id_field_officer; ?>"><?php echo strtoupper(getSpecificDetails('field_officers', 'field_officer_code', 'id_field_officer=' . $training->id_field_officer)); ?></option>
-    <?php
-    $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
-    foreach ($fo_query->results() as $fo_query):
-        ?>
+                                                                                        <?php
+                                                                                        $fo_query = DB::getInstance()->query("SELECT * FROM field_officers");
+                                                                                        foreach ($fo_query->results() as $fo_query):
+                                                                                            ?>
                                                                                             <option value="<?php echo $fo_query->id_field_officer; ?>"><?php echo strtoupper($fo_query->id_field_officer); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
+
+
                                                                             <div class="row form-group">
                                                                                 <label class="col-sm-4 control-label">Field officer name</label>
 
@@ -498,10 +440,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_lead_farmer">
                                                                                         <option value="<?php echo $training->id_lead_farmer; ?>"><?php echo strtoupper(getSpecificDetails('lead_farmers', 'lead_farmer_code', 'id_lead_farmer=' . $training->id_lead_farmer)); ?></option>
-    <?php
-    $lf_query = DB::getInstance()->query("SELECT * FROM lead_farmers");
-    foreach ($lf_query->results() as $lf_query):
-        ?>
+                                                                                        <?php
+                                                                                        $lf_query = DB::getInstance()->query("SELECT * FROM lead_farmers");
+                                                                                        foreach ($lf_query->results() as $lf_query):
+                                                                                            ?>
                                                                                             <option value="<?php echo $lf_query->id_lead_farmer; ?>"><?php echo strtoupper($lf_query->id_lead_farmer); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -519,10 +461,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_district">
                                                                                         <option value="<?php echo $training->id_district; ?>"><?php echo strtoupper(getSpecificDetails('district', 'district_name', 'id_district=' . $training->id_district)); ?></option>
-    <?php
-    $query_district = DB::getInstance()->query("SELECT * FROM district");
-    foreach ($query_district->results() as $query_district):
-        ?>
+                                                                                        <?php
+                                                                                        $query_district = DB::getInstance()->query("SELECT * FROM district");
+                                                                                        foreach ($query_district->results() as $query_district):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_district->id_district; ?>"><?php echo strtoupper($query_district->district_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -533,10 +475,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_training_venue">
                                                                                         <option value="<?php echo $training->id_training_venue; ?>"><?php echo strtoupper(getSpecificDetails('training_venue', 'venue_name', 'id_training_venue=' . $training->id_training_venue)); ?></option>
-    <?php
-    $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
-    foreach ($training_venue_query->results() as $training_venue_query):
-        ?>
+                                                                                        <?php
+                                                                                        $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
+                                                                                        foreach ($training_venue_query->results() as $training_venue_query):
+                                                                                            ?>
                                                                                             <option value="<?php echo $training_venue_query->id_training_venue; ?>"><?php echo strtoupper($training_venue_query->venue_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -547,10 +489,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_subcounty">
                                                                                         <option value="<?php echo $training->id_subcounty; ?>"><?php echo strtoupper(getSpecificDetails('subcounty', 'subcounty_name', 'id_subcounty=' . $training->id_subcounty)); ?></option>
-    <?php
-    $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
-    foreach ($query_subcounty->results() as $query_subcounty):
-        ?>
+                                                                                        <?php
+                                                                                        $query_subcounty = DB::getInstance()->query("SELECT * FROM subcounty");
+                                                                                        foreach ($query_subcounty->results() as $query_subcounty):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_subcounty->id_subcounty; ?>"><?php echo strtoupper($query_subcounty->subcounty_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -561,10 +503,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_parish">
                                                                                         <option value="<?php echo $training->id_parish; ?>"><?php echo strtoupper(getSpecificDetails('parish', 'parish_name', 'id_parish=' . $training->id_parish)); ?></option>
-    <?php
-    $query_parisht = DB::getInstance()->query("SELECT * FROM parish");
-    foreach ($query_parisht->results() as $query_parisht):
-        ?>
+                                                                                        <?php
+                                                                                        $query_parisht = DB::getInstance()->query("SELECT * FROM parish");
+                                                                                        foreach ($query_parisht->results() as $query_parisht):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_parisht->id_parish; ?>"><?php echo strtoupper($query_parisht->parish_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -575,10 +517,10 @@ foreach ($training->results() as $training):
                                                                                 <div class="col-sm-7">
                                                                                     <select class="form-control select2" style="width: 100%;" name="id_module">
                                                                                         <option value="<?php echo $training->id_module; ?>"><?php echo strtoupper(getSpecificDetails('modules', 'module_name', 'id_module=' . $training->id_module)); ?></option>
-    <?php
-    $query_module = DB::getInstance()->query("SELECT * FROM modules");
-    foreach ($query_module->results() as $query_module):
-        ?>
+                                                                                        <?php
+                                                                                        $query_module = DB::getInstance()->query("SELECT * FROM modules");
+                                                                                        foreach ($query_module->results() as $query_module):
+                                                                                            ?>
                                                                                             <option value="<?php echo $query_module->id_module; ?>"><?php echo strtoupper($query_module->module_name); ?></option>
                                                                                         <?php endforeach; ?>
                                                                                     </select>
@@ -591,21 +533,6 @@ foreach ($training->results() as $training):
                                                                                     <input type="number" class="form-control" id="inputName" name="module_repetition" placeholder="Enter how mny times module has been repeated e.g 01" autocomplete="off" value="<?php echo strtoupper($training->module_repetition); ?>">
                                                                                 </div>
                                                                             </div>
-                                                                            <!-- <div class="row form-group">
-                                                                               <label class="col-sm-4 control-label">Production Area</label>
-                                                           
-                                                                               <div class="col-sm-7">
-                                                                                 <select class="form-control select2" style="width: 100%;" name="id_production_area">
-                                                                             <option>--Select--</option>
-    <?php
-    $query_pdn_area = DB::getInstance()->query("SELECT * FROM production_area");
-    foreach ($query_pdn_area->results() as $pdn_area):
-        ?>
-                                                                                     <option value="<?php echo $pdn_area->id_production_area; ?>"><?php echo strtoupper($pdn_area->production_area); ?></option>
-                                                                            <?php endforeach; ?>
-                                                                           </select>
-                                                                               </div>
-                                                                             </div>-->
 
                                                                             <div class="row form-group">
                                                                                 <label class="col-sm-4 control-label">Male ofs</label>
@@ -720,10 +647,10 @@ foreach ($training->results() as $training):
                                                         </div>
                                                         <!-- /.modal -->
                                                         </tr>
-    <?php
-    $x++;
-endforeach;
-?>
+                                                        <?php
+                                                        $x++;
+                                                    endforeach;
+                                                    ?>
                                                     </tbody>
                                                     <tfoot>
                                                     </tfoot>
@@ -747,6 +674,6 @@ endforeach;
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-<?php include 'include/footer.php'; ?>
+            <?php include 'include/footer.php'; ?>
     </body>
 </html>

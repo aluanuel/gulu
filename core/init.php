@@ -30,7 +30,8 @@ $GLOBALS['config'] = array(
     ),
     'session' => array(
         'session_name' => 'user',
-        'token_name' => 'token'
+        'token_name' => 'token',
+        'project_id' => 0
     )
 );
 //require_once 'classes/config.php';

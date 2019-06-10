@@ -22,6 +22,8 @@
                 <?php
                 if (Input::exists() && Input::get('save_field_officer') == 'save_field_officer') {
                     $enrolment_date = Input::get('training_date');
+                    //$name = strtolower(Input::get('name'));
+                    //$id_field_officer = Input::get('id_field_officer');
                     $id_area_coordinator = Input::get('id_area_coordinator');
                     $id_training_venue = Input::get('id_training_venue');
                     $id_district = Input::get('id_district');
@@ -101,7 +103,7 @@
 
                         $notification = submissionReport('success', 'Data updated successfully');
                     } else {
-                        $notification = submissionReport('error', 'Error in updating data '.$id_area_coordinator);
+                        $notification = submissionReport('error', 'Error in updating data');
                     }
                 } elseif (Input::exists() && Input::get('delete_tot') == 'delete_tot') {
                     $id_tot = Input::get('id_tot');
@@ -150,7 +152,7 @@
                                             <div class="row form-group">
                                                 <div class="col-xs-3">
                                                 <label class="control-label">Training Venue</label>
-                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue" >
+                                                    <select class="selectpicker form-control" style="width: 100%;" id="basic1" data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true" name="id_training_venue" required="required">
                                                         <option>--Select--</option>
                                                         <?php
                                                         $training_venue_query = DB::getInstance()->query("SELECT * FROM training_venue");
@@ -294,11 +296,11 @@
 
                                             <div class="row form-group">
                                             <div class="col-xs-3">
-                                                <label class="control-label">Lfs</label>
+                                                <label class="control-label">LFs</label>
                                                     <input type="text" class="form-control btn-default" id="inputName" name="lfs" placeholder="Enter attendance list lfs" autocomplete="off" required>
                                                 </div>
                                                 <div class="col-xs-3">
-                                                <label class="control-label">Ofs</label>
+                                                <label class="control-label">FOs</label>
                                                     <input type="text" class="form-control btn-default" id="inputName" name="ofs" placeholder="Enter attendance list ofs" autocomplete="off" >
                                             </div>
                                             <div class="col-xs-3">
@@ -309,6 +311,10 @@
                                             
                                             
                                             <div class="row form-group">
+                                                <div class="col-xs-3">
+                                                <label class="control-label">Serial number</label>
+                                                    <input type="text" class="form-control btn-default" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
+                                                </div>
                                                 <div class="col-xs-6">
                                                 <label class="control-label">Reviewed by</label>
                                                     <input type="text" class="form-control btn-default" id="inputName" name="reviewed_by" placeholder="Reviewed by" autocomplete="off">
